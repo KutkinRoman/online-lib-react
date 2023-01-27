@@ -11,6 +11,20 @@
     margin-left: auto;
 }
 
+.navScrollBar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: -1000;
+    opacity: 0;
+    transition-duration: 0.4s;
+}
+
+.navScrollBarShow {
+    z-index: 1000;
+    opacity: 0.98;
+}
+
 .loginPage {
     background: url("../assect/images/login-page-background.png") no-repeat center right;
     background-size: cover;
@@ -25,6 +39,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
 }
 
 .loginPageLogo {

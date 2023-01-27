@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import React, {MutableRefObject, useState} from 'react';
+import {useNavigate} from "react-router-dom";
 import './styles.css';
 import {NavItem} from "./types";
 import NavItemComponent from "./NavItemComponent";
@@ -30,18 +30,28 @@ const items: NavItem[] = [
     }
 ]
 
-const NavBar = () => {
+interface NavBarProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    scrollProps?: MutableRefObject<{
+        top: number,
+        isAuto: boolean
+    }>
+}
+
+const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
 
     const navigate = useNavigate();
 
     const [currentItemId, setCurrentItemId] = useState<string>('main')
 
     const onClickItemHandler = (item: NavItem) => {
+        if (scrollProps?.current) {
+            scrollProps.current.isAuto = true;
+        }
         setCurrentItemId(item.id)
         if (item.scrollToElement) {
             const element = document.getElementById(item.scrollToElement)
             if (element) {
-                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
             }
         }
     }
@@ -57,7 +67,7 @@ const NavBar = () => {
     }
 
     return (
-        <div className={'navBarWrapper'}>
+        <div className={['navBarWrapper', className].join(' ')} {...props}>
             <div className={'navBarLogoContainer'}>
                 <div className={'navBarLogo'}/>
             </div>
