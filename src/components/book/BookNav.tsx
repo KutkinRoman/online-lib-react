@@ -55,16 +55,18 @@ const BookNav = () => {
     return (
         <div className={'bookNavWrapper'}>
             <div className={'bookNavHeader'}>Категории</div>
-            {categories.map(category => {
-                return (
-                    <BookNavItem
-                        key={category.id}
-                        category={category}
-                        currentCategory={currentCategory}
-                        onClick={() => onClickItemHandler(category)}
-                    />
-                )
-            })}
+            <div className={'bookNavItems'}>
+                {categories.map(category => {
+                    return (
+                        <BookNavItem
+                            key={category.id}
+                            category={category}
+                            currentCategory={currentCategory}
+                            onClick={() => onClickItemHandler(category)}
+                        />
+                    )
+                })}
+            </div>
         </div>
     );
 };

@@ -1,0 +1,60 @@
+
+.footerWrapper {
+    background: #373737;
+}
+
+.footerTop {
+    height: 120px;
+    padding: 10px 50px 10px 50px;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+.footerTopLogo {
+    background: url("../../assect/landingPage/book-logo.png") no-repeat center;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.footerCopyright {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 155%;
+    letter-spacing: 0.05em;
+    color: #CFCFCF;
+    text-align: center;
+    padding: 0 10px 0 10px;
+}
+
+.footerContent {
+    display: flex;
+    flex-direction: row;
+    padding: 40px 0 100px 0;
+}
+
+.footerContentItem {
+    flex: 1;
+}
+
+.footerInfoTitle {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 155%;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+}
+
+.footerInfoText {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 185%;
+    text-align: justify;
+    letter-spacing: 0.015em;
+    color: #FFFFFF;
+}

@@ -3,6 +3,8 @@ import './styles.css';
 import NavBar from "../components/navbar/NavBar";
 import LandingMain from "../components/landing/LandingMain";
 import LandingBooks from "../components/book/LandingBooks";
+import Footer from "../components/fotter/Footer";
+import LandingRule from "../components/rule/LandingRule";
 
 const LandingPage = () => {
     return (
@@ -10,8 +12,10 @@ const LandingPage = () => {
             <div className={'landingTop'}>
                 <NavBar/>
                 <LandingMain/>
-                <LandingBooks/>
             </div>
+            <LandingBooks/>
+            <LandingRule/>
+            <Footer/>
         </div>
     );
 };

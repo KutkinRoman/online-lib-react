@@ -1,0 +1,121 @@
+
+.ruleWrapper {
+    background: #FFFFFF;
+}
+
+.ruleHeader {
+    height: 150px;
+    background: #CDE5F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ruleHeaderTitle {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+}
+
+.ruleHeaderDescription {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #5F5F5F;
+}
+
+.ruleBody {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    flex-direction: row;
+}
+
+.ruleImage {
+    position: absolute;
+    background: linear-gradient(151.1deg, #4399C9 17.06%, #00324E 86.09%);
+    filter: blur(20px);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.ruleImageLT {
+    left: 30px;
+    top: 30px;
+    height: 130px;
+    width: 130px;
+}
+
+.ruleImageRT {
+    right: 30px;
+    top: 30px;
+    height: 150px;
+    width: 150px;
+}
+
+.ruleImageC {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 500px;
+}
+
+.ruleImageLB {
+    left: 10px;
+    bottom: 10px;
+    height: 300px;
+    width: 300px;
+}
+
+.ruleImageRB {
+    right: 10px;
+    bottom: 10px;
+    height: 300px;
+    width: 300px;
+}
+
+.ruleItems {
+    flex: 1;
+}
+
+.ruleItem {
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.ruleItemTitle {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 223%;
+    text-align: justify;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+}
+
+.ruleItemText {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 223%;
+    text-align: justify;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+}
