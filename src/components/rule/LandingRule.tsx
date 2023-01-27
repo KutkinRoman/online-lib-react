@@ -46,11 +46,13 @@ const LandingRule = () => {
     return (
         <div className={'ruleWrapper'}>
             <div className={'ruleHeader'}>
-                <div className={'ruleHeaderTitle'}>
-                    Правила и предписания
-                </div>
-                <div className={'ruleHeaderDescription'}>
-                    Пожалуйста, внимательно прочитайте и строго придерживайтесь правил библиотеки
+                <div className={'container'}>
+                    <div className={'ruleHeaderTitle'}>
+                        Правила и предписания
+                    </div>
+                    <div className={'ruleHeaderDescription'}>
+                        Пожалуйста, внимательно прочитайте и строго придерживайтесь правил библиотеки
+                    </div>
                 </div>
             </div>
             <div className={'ruleBody'}>
@@ -59,15 +61,17 @@ const LandingRule = () => {
                 <div className={'ruleImage ruleImageC'}/>
                 <div className={'ruleImage ruleImageLB'}/>
                 <div className={'ruleImage ruleImageRB'}/>
-                <div className={'ruleItems'}>
-                    {ruleArrayOne.map(role => (
-                        <RuleItem key={role.id} rule={role}/>
-                    ))}
-                </div>
-                <div className={'ruleItems'}>
-                    {ruleArrayTwo.map(role => (
-                        <RuleItem key={role.id} rule={role}/>
-                    ))}
+                <div className={'ruleContent container'}>
+                    <div className={'ruleItems'}>
+                        {ruleArrayOne.map(role => (
+                            <RuleItem key={role.id} rule={role}/>
+                        ))}
+                    </div>
+                    <div className={'ruleItems'}>
+                        {ruleArrayTwo.map(role => (
+                            <RuleItem key={role.id} rule={role}/>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,8 +5,13 @@
 
 .footerTop {
     height: 120px;
-    padding: 10px 50px 10px 50px;
-    border-bottom: 1px solid #CFCFCF;
+    padding: 10px;
+}
+
+.footerLine {
+    background: #CFCFCF;
+    min-height: 1px;
+    width: 100%;
 }
 
 .footerTopLogo {

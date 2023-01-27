@@ -35,7 +35,9 @@
 
 .ruleBody {
     position: relative;
-    min-height: 500px;
+}
+
+.ruleContent{
     display: flex;
     flex-direction: row;
 }
@@ -96,13 +98,14 @@
     backdrop-filter: blur(25px);
     border-radius: 20px;
     padding: 15px;
+    margin: 25px;
 }
 
 .ruleItemTitle {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 223%;
     text-align: justify;
     letter-spacing: 0.05em;
@@ -113,7 +116,7 @@
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 223%;
     text-align: justify;
     letter-spacing: 0.05em;

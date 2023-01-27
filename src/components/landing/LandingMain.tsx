@@ -23,7 +23,7 @@ const LandingMain = () => {
 
     return (
         <div id={'landingMainWrapper'} className={'landingMainWrapper'}>
-            <div className={'landingMainHeader'}>
+            <div className={'landingMainHeader container'}>
                 <div className={'landingMainTitle'}>
                     Лучшие <span className={'landingMainTitle landingMainTextPrimary'}>книги</span> и рекомендации для
                     вас
@@ -38,7 +38,7 @@ const LandingMain = () => {
                     onClick={() => navigate('/sign-up')}
                 />
             </div>
-            <div className={'landingMainCards'}>
+            <div className={'landingMainCards container'}>
                 <div className={'landingMainCard'}>
                     <CardInfo title={'01'} description={'+ 1000 Книг'}/>
                     <CardInfo title={'02'} description={'+ 600 Пользователей'}/>

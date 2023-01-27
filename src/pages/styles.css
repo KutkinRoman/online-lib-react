@@ -5,6 +5,12 @@
     overflow-x: hidden;
 }
 
+.container {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .loginPage {
     background: url("../assect/images/login-page-background.png") no-repeat center right;
     background-size: cover;
