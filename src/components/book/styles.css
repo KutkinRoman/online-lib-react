@@ -1,0 +1,67 @@
+.landingBooksWrapper {
+    background: #F1FAFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.bookNavWrapper {
+    flex: 1;
+    background: #FFFFFF;
+    box-shadow: 6px 0 30px rgba(0, 0, 0, 0.2);
+    height: 80vh;
+}
+
+.bookNavHeader {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 65px;
+    color: #0F76B0;
+    padding: 145px 47px 60px 0;
+    text-align: right;
+}
+
+.bookNavItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 23px 10px 10px;
+    gap: 10px;
+    width: 250px;
+    height: 65px;
+    background: #CFCFCF;
+    border-radius: 0 50px 50px 0;
+    margin: 5px 0 5px 0;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    position: relative;
+}
+
+.bookNavItem:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.bookNavItemMarker {
+    position: absolute;
+    background: transparent;
+    border-radius: 0 50px 50px 0;
+    width: 20px;
+    transition-duration: 0.4s;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.bookNavItemMarkerShow {
+    background: rgba(15, 118, 176, 0.8);
+    width: 100px;
+}
+
+.bookCards {
+    flex: 4;
+}

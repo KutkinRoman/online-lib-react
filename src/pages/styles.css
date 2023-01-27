@@ -1,0 +1,82 @@
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.loginPage {
+    background: url("../assect/images/login-page-background.png") no-repeat center right;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginPageContainer {
+    width: 680px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginPageLogo {
+    background: url("../assect/images/logo.png") no-repeat center center;
+    background-size: cover;
+    width: 570px;
+    height: 150px;
+    margin: 50px;
+}
+
+.signUpPage {
+    display: flex;
+}
+
+.signUpLogoContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.signUpBackground {
+    background: url("../assect/images/sign-in-page-background.png") no-repeat center right;
+    background-size: cover;
+    filter: brightness(30%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+.signUpLogo {
+    background: url("../assect/images/logo.png") no-repeat center center;
+    background-size: cover;
+    width: 570px;
+    height: 150px;
+}
+
+.signUpFormContainer {
+    width: 670px;
+    height: 100%;
+}
+
+.landingPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.landingTop {
+    display: flex;
+    flex-direction: column;
+}
+
+
+

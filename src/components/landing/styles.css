@@ -1,0 +1,104 @@
+
+.landingMainWrapper {
+    background: #F0F0F0;
+    flex: 1;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.landingMainHeader {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landingMainTitle {
+    width: 848px;
+    height: 192px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 96px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+}
+
+.landingMainDescription {
+    width: 1172px;
+    height: 66px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 164%;
+    text-align: center;
+    letter-spacing: 0.155em;
+    color: #0F0F0F;
+}
+
+.landingMainTextPrimary {
+    color: #0F76B0;
+}
+
+.landingMainStartButton {
+    margin-top: 35px;
+    max-width: 300px;
+}
+
+.landingMainCards {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.landingMainCard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landingMainCardInfo {
+    height: 87px;
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.landingMainCardInfoTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 87px;
+    color: #0F0F0F;
+}
+
+.landingMainCardInfoDescription {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #0F0F0F;
+    padding-left: 37px;
+}
+
+.landingMainCardBooks {
+    background: url("../../assect/landingPage/landing-main-books.png") no-repeat center center;
+    background-size: cover;
+}
+
+.landingMainCardGirl {
+    background: url("../../assect/landingPage/landing-main-gerl.png") no-repeat center center;
+    background-size: cover;
+}

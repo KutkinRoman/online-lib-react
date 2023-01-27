@@ -1,0 +1,12 @@
+.accountFormContainer {
+    background: rgb(255, 255, 255);
+}
+
+.accountFormBody {
+    margin-right: 60px;
+    margin-left: 60px;
+}
+
+.accountSubmitButton {
+    margin-top: 48px;
+}

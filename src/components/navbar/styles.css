@@ -1,0 +1,162 @@
+
+.navBarWrapper {
+    background: #373737;
+    min-height: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.navBarLogoContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBarLogo {
+    background: url("../../assect/landingPage/book-logo.png") no-repeat center center;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.navBarItemsContainer {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navBarItem {
+    padding: 0 5px 0 5px;
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 157.68%;
+    color: #FFFFFF;
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition-duration: 0.4s;
+}
+
+.navBarItem:hover {
+    color: #0F76B0;
+    cursor: pointer;
+}
+
+.navBarItemSelected {
+    color: #0F76B0;
+}
+
+.navBarItemMarker {
+    background: transparent;
+    height: 10px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition-duration: 0.4s;
+}
+
+.navBarItemMarkerSelected {
+    background: #0F76B0;
+}
+
+.navBarUserMenuContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navBarUserMenuButton {
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    transition-duration: 0.4s;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #FFFFFF;
+}
+
+.navBarUserMenuButton:hover {
+    cursor: pointer;
+    color: #0F76B0;
+    border-color: #0F76B0;
+}
+
+.navBarUserMenuButtonIcon {
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    transition-duration: 0.4s;
+}
+
+.navBarUserMenuButtonIcon:hover {
+    cursor: pointer;
+}
+
+.navBarUserMenuButtonIconSearch {
+    background: url("../../assect/landingPage/search-icon.png") no-repeat center center;
+}
+
+.navBarUserMenuButtonIconNotification {
+    background: url("../../assect/landingPage/notification-icon.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.navBarUserMenuNotificationMarker {
+    position: absolute;
+    background: transparent;
+    border-radius: 50px;
+    height: 8px;
+    width: 8px;
+    top: 2px;
+    right: 2px;
+    transition-duration: 0.4s;
+}
+
+.navBarUserMenuNotificationMarkerShow {
+    background: #d30303;
+}
+
+.navBarUserMenuButtonIconShoppingCard {
+    background: url("../../assect/landingPage/shopping-card-icon.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.navBarUserMenuShoppingCardMarker{
+    position: absolute;
+    background: transparent;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+    top: 2px;
+    right: 2px;
+    color: #FFFFFF;
+    font-size: small;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    text-align: center;
+}
+
+.navBarUserMenuShoppingCardMarkerShow {
+    background: rgba(15, 118, 176, 0.75);
+}
+
+
+

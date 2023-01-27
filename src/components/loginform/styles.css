@@ -1,0 +1,18 @@
+.loginFormContainer {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: #FFFFFF;
+    border-radius: 10px;
+    border-width: 2px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginFormBody {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.loginSubmitButton{
+    margin-top: 56px;
+}
