@@ -96,3 +96,13 @@
     letter-spacing: 0.155em;
     color: #0F0F0F;
 }
+
+.psychologyOfMoney {
+    background: url("../../assect/bookCovers/psychologyOfMoney.png") no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    width: 235px;
+    height: 359px;
+    left: 0;
+    top: 14px;
+}

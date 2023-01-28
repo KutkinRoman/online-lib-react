@@ -1,0 +1,46 @@
+
+.reviewWrapper {
+    background: #FFFFFF;
+}
+
+.reviewTop {
+    width: 1512px;
+    height: 926px;
+}
+
+.reviewContent {
+    display: flex;
+    flex-direction: row;
+    padding: 926px 0 100px 0;
+}
+
+.reviewContentItems {
+    flex: 1;
+}
+
+.reviewItem {
+    width: 961px;
+    height: 268px;
+    left: 553px;
+    top: 200px;
+    background: #008705;
+    padding: 100px 0 100px 0;
+}
+
+.reviewItemText {
+    font-family: Open Sans, serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.155em;
+    padding: 100px 0 100px 0;
+}
+
+.reviewBookCover {
+    background: url("../../assect/ourServices/itWasAllADream.png") no-repeat center center;
+    width: 384px;
+    height: 500px;
+    left: 101px;
+    top: 300px;
+    padding: 100px 0 100px 0;
+}
