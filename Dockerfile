@@ -2,7 +2,6 @@ FROM node:14.18.1 as build
 COPY package*.json ./
 RUN npm install --silent --only=production
 COPY . .
-COPY prod.env .env
 RUN npm run build
 
 FROM nginx:1.16.0-alpine
