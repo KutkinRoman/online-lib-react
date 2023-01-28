@@ -6,7 +6,7 @@ import LandingBooks from "../components/book/LandingBooks";
 import Footer from "../components/fotter/Footer";
 import LandingRule from "../components/rule/LandingRule";
 import Review from "../components/review/Review";
-import {API, API_HTTP_TEST} from "../data/APICofig";
+import {API} from "../data/APICofig";
 
 const LandingPage = () => {
 
@@ -15,12 +15,7 @@ const LandingPage = () => {
             const response = await API.get('/echo')
             console.log('-- Echo -- : ', response.data)
         }
-        const testHttp = async () => {
-            const response = await API_HTTP_TEST.get('/')
-            console.log('HTTP TEST', response.data)
-        }
         echo();
-        testHttp();
     }, [])
 
     const [isShowScrollNavBar, setIsShowScrollNavBar] = useState<boolean>(false)
