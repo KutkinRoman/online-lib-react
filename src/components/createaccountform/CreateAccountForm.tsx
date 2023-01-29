@@ -38,7 +38,7 @@ const CreateAccountForm = () => {
                 <TextFiled label={'First Name'} placeholder={'Enter your first name'} register={firstName}/>
                 <TextFiled label={'Last Name'} placeholder={'Enter your last name'} register={lastName}/>
                 <TextFiled label={'E-mail'} placeholder={'Enter a valid email address'} register={username}/>
-                <TextFiled label={'Password'} placeholder={'Enter a 6 digit password '} register={password}/>
+                <TextFiled type={'password'} label={'Password'} placeholder={'Enter a 6 digit password '} register={password}/>
                 <Button
                     type={'submit'}
                     className={'accountSubmitButton'}
