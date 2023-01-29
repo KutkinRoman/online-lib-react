@@ -5,12 +5,8 @@ const Review  = () => {
     return (
         <div className={'reviewWrapper'}>
             <div className={'footerTop container'}>
-
-            </div>
-
-            <div className={'reviewContent container'}>
+                <div className={'reviewBookCover'}> </div>
                 <div className={'reviewContentItems reviewItem '}>
-                    <div className={'reviewBookCover'}> </div>
 
                     <div className={'reviewItemText '} >
                         The Notorious B.I.G. был одним из самых харизматичных и талантливых артистов 1990-х годов.
@@ -20,6 +16,10 @@ const Review  = () => {
                     </div>
 
                 </div>
+            </div>
+
+            <div className={'reviewContent container'}>
+
             </div>
         </div>
     );
