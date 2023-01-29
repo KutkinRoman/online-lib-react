@@ -84,6 +84,20 @@
     box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
+.formButtonDisable {
+    background: #00334b;
+    border-radius: 10px;
+    height: 45px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #989898;
+    border: none;
+    transition-duration: 0.4s;
+    box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
+
 .formButton:active {
     box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
 }
