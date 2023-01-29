@@ -1,5 +1,5 @@
 import React from 'react';
-import BookForm from "../components/book/BookForm";
+import BookForm from "../components/bookform/BookForm";
 
 const BookEditPage = () => {
     return (

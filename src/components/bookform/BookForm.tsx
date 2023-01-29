@@ -6,26 +6,39 @@ import {observer} from "mobx-react-lite";
 import {useAppStore} from "../../context/useAppStore";
 import {useFieldArray, useForm} from "react-hook-form";
 
+/**
+ * React hook form field array example: https://stackblitz.com/edit/react-rrz1sz?file=src%2Fcomponents%2FSocialContainer.jsx
+ *
+ */
+
 const BookForm = () => {
     const bookStore = useAppStore().bookStore
+    const authorStore = useAppStore().authorStore
 
     useEffect(() => {
         bookStore.initCategories()
+        authorStore.initAutors()
     }, [])
 
     const {register, control, handleSubmit, reset, trigger, setError} = useForm({});
 
-    const {fields, append, remove} = useFieldArray({
+    const categories = useFieldArray({
         control,
-        name: "categories",
-    });
+        name: 'categories',
+    })
+
+    const authors = useFieldArray({
+        control,
+        name: 'authors',
+    })
 
     useEffect(() => {
-        append(null)
+        categories.append(null)
+        authors.append(null)
     }, [])
 
     const onSubmit = (date: any) => {
-        console.log(date)
+        console.dir(date)
     }
 
     return (
@@ -33,13 +46,24 @@ const BookForm = () => {
             <TextFiled
                 label={'Наименование'}
             />
-            {fields.map((field, index) => (
+            {categories.fields.map((field, index) => (
                 <Select
                     key={field.id}
-                    {...register(`categories.${index}.value`)}
-                    label={'Категория'}
+                    register={register(`categories.${index}.value`)}
+                    label={`Категория ${index + 1}`}
                     items={bookStore.categories}
                     getLabelItem={item => item.name}
+                    getOptionValue={item => item.id}
+                />
+            ))}
+            {authors.fields.map((field, index) => (
+                <Select
+                    key={field.id}
+                    register={register(`authors.${index}.value`)}
+                    label={`Автор ${index + 1}`}
+                    items={authorStore.authors}
+                    getLabelItem={item => item.fullName}
+                    getOptionValue={item => item.id}
                 />
             ))}
             <Button
