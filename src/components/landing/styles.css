@@ -15,9 +15,9 @@
 }
 
 .landingMainTitle {
-    width: 848px;
+    width: 920px;
     height: 192px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
@@ -30,7 +30,7 @@
 .landingMainDescription {
     width: 1172px;
     height: 66px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

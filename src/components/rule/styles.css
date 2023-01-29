@@ -12,7 +12,7 @@
 }
 
 .ruleHeaderTitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 48px;
@@ -23,7 +23,7 @@
 }
 
 .ruleHeaderDescription {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -102,7 +102,7 @@
 }
 
 .ruleItemTitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -113,7 +113,7 @@
 }
 
 .ruleItemText {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
