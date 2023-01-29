@@ -99,10 +99,19 @@
 
     color: #FFFFFF;
     margin-left: -200px;
-
     /* Inside auto layout */
 
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+.blueItem {
+    width: 19px;
+    height: 83px;
+    margin-left: -112px;
+    /*margin-bottom: -112px;*/
+    margin-top: 20px;
+
+    background: #0F76B0;
 }
