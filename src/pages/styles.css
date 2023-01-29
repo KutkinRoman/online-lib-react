@@ -99,5 +99,14 @@
     flex-direction: column;
 }
 
+.userVerificationPage {
+    background: url("../assect/images/sign-in-page-background.png") no-repeat center right;
+    background-size: cover;
+    filter: brightness(50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 

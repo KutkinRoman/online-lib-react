@@ -8,7 +8,6 @@ import {useAppStore} from "../../context/useAppStore";
 import {useForm} from "react-hook-form";
 
 const CreateAccountForm = () => {
-
     const navigate = useNavigate()
     const appStore = useAppStore()
     const onSubmit = async (data: any) => {

@@ -37,6 +37,12 @@ export class AuthStore {
         this.initUser(response.data.accessToken)
     }
 
+    async verification(secret: string) {
+        const response = await AuthService.verification(secret)
+        this.updateLocalStorage(response.data)
+        this.initUser(response.data.accessToken)
+    }
+
     logout(){
         this.clear();
     }
@@ -89,6 +95,7 @@ export class AuthStore {
     getRefreshToken() {
         return localStorage.getItem(AuthStore.REFRESH_TOKEN_KEY)
     }
+
 
 
 }

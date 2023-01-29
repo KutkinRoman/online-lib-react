@@ -17,5 +17,12 @@ export class AuthService {
         })
     }
 
+    static async verification(secret: string) {
+        return await API.post<InterfaceAuthResponse>('/auth/verification', {}, {
+            params: {
+                secret
+            }
+        })
+    }
 
 }
