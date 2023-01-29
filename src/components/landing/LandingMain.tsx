@@ -2,6 +2,8 @@ import React from 'react';
 import {useNavigate} from "react-router-dom";
 import './styles.css'
 import Button from "../form/Button";
+import {observer} from "mobx-react-lite";
+import {useAppStore} from "../../context/useAppStore";
 
 interface CardInfoProps {
     title: string;
@@ -18,8 +20,8 @@ const CardInfo = ({title, description}: CardInfoProps) => {
 }
 
 const LandingMain = () => {
-
     const navigate = useNavigate();
+    const authStore = useAppStore().authStore
 
     return (
         <div id={'landingMainWrapper'} className={'landingMainWrapper'}>
@@ -32,11 +34,13 @@ const LandingMain = () => {
                     Не можете решить какую книгу прочитать? Вам не надо искать дальше.
                     Открывайте для себя книги, которые вы можете прочитать, делитесь ими и комментируйте.
                 </div>
-                <Button
-                    className={'landingMainStartButton'}
-                    children={'Зарегистрируйтесь и начните!'}
-                    onClick={() => navigate('/sign-up')}
-                />
+                {!authStore.isAuth() &&
+                    <Button
+                        className={'landingMainStartButton'}
+                        children={'Зарегистрируйтесь и начните!'}
+                        onClick={() => navigate('/sign-up')}
+                    />
+                }
             </div>
             <div className={'landingMainCards container'}>
                 <div className={'landingMainCard'}>
@@ -52,4 +56,4 @@ const LandingMain = () => {
 };
 
 
-export default LandingMain;
+export default observer(LandingMain);

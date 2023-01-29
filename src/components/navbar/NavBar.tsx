@@ -1,5 +1,5 @@
 import React, {MutableRefObject} from 'react';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import './styles.css';
 import {NavItem} from "./types";
 import NavItemComponent from "./NavItemComponent";
@@ -41,14 +41,20 @@ interface NavBarProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
 
 const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const navStore = useAppStore().navigationStore
 
-
     const onClickItemHandler = (item: NavItem) => {
-        if (scrollProps?.current) {
-            scrollProps.current.isAuto = true;
-        }
         navStore.setCurrentItemId(item.id)
+        if (location.pathname !== '/') {
+            navigate('/')
+            setTimeout(() => scrollToItem(item), 50)
+            return;
+        }
+        scrollToItem(item);
+    }
+
+    const scrollToItem = (item: NavItem) => {
         if (item.scrollToElement) {
             const element = document.getElementById(item.scrollToElement)
             if (element) {
@@ -56,6 +62,7 @@ const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
             }
         }
     }
+
     const renderItem = (item: NavItem) => {
         return (
             <NavItemComponent
