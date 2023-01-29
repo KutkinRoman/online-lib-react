@@ -1,4 +1,4 @@
-import React, {UIEvent, useEffect, useRef, useState} from 'react';
+import React, {UIEvent, useRef, useState} from 'react';
 import './styles.css';
 import NavBar from "../components/navbar/NavBar";
 import LandingMain from "../components/landing/LandingMain";
@@ -6,29 +6,8 @@ import LandingBooks from "../components/book/LandingBooks";
 import Footer from "../components/fotter/Footer";
 import LandingRule from "../components/rule/LandingRule";
 import Review from "../components/review/Review";
-import {API} from "../data/APICofig";
-import {useAppStore} from "../context/useAppStore";
 
 const LandingPage = () => {
-
-    const store = useAppStore()
-
-    useEffect(() => {
-        const echo = async () => {
-            const response = await API.get('/echo')
-            console.log('-- Echo -- : ', response.data)
-        }
-        const testLogin = async () => {
-            await store.authStore.login({
-                username: 'admin@gmail.com',
-                password: 'admin'
-            })
-            console.log('-- Test Login -- : ', store.authStore.user)
-        }
-
-        echo();
-        testLogin();
-    }, [])
 
     const [isShowScrollNavBar, setIsShowScrollNavBar] = useState<boolean>(false)
 

@@ -10,4 +10,5 @@ export class BookCategoryService {
     static async save(data: any) {
         return await API.post<InterfaceBookCategory>('/book-categories/save', data)
     }
+
 }

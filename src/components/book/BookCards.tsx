@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles.css'
-import {InterfaceBook} from "../../data/entities/Book";
 import BookCard from "./BookCard";
 import {Grid} from "@mui/material";
 import BookCardsPagination from "./BookCardsPagination";
@@ -8,11 +7,6 @@ import {useAppStore} from "../../context/useAppStore";
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
 import ShowMoreButton from "../button/ShowMoreButton";
-
-export const getBooksDemo = () => {
-    const booksDemo: InterfaceBook[] = []
-    return booksDemo
-}
 
 interface BookCardsProps {
     isShowAll?: boolean
@@ -24,9 +18,9 @@ const BookCards = ({isPagination, isShowAll}: BookCardsProps) => {
     const navigationStore = useAppStore().navigationStore
     const bookStore = useAppStore().bookStore
 
-    function onNextPageHandler() {
-        bookStore.setBooks([...bookStore.books, ...getBooksDemo()])
-        setTimeout(onScrollToPagination, 50)
+    async function onNextPageHandler() {
+        await bookStore.nextPageByCategory(bookStore.currentCategory)
+        onScrollToPagination()
     }
 
     const onShowAllHandler = () => {
