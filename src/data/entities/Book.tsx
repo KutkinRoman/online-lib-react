@@ -1,3 +1,6 @@
+import {InterfaceBookCategory} from "./BookCategory";
+import {InterfaceAuthor} from "./Author";
+
 export interface InterfaceBook {
 
     id: string;
@@ -9,4 +12,8 @@ export interface InterfaceBook {
     coverLink: string;
 
     price: number;
+
+    categories: InterfaceBookCategory[]
+
+    authors: InterfaceAuthor[]
 }
