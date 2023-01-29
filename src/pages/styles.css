@@ -109,4 +109,10 @@
     align-items: center;
 }
 
+.booksPageContainer {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
 

@@ -1,9 +1,11 @@
-import React, {MutableRefObject, useState} from 'react';
+import React, {MutableRefObject} from 'react';
 import {useNavigate} from "react-router-dom";
 import './styles.css';
 import {NavItem} from "./types";
 import NavItemComponent from "./NavItemComponent";
 import NavUserMenu from "./NavUserMenu";
+import {observer} from "mobx-react-lite";
+import {useAppStore} from "../../context/useAppStore";
 
 const items: NavItem[] = [
     {
@@ -38,20 +40,19 @@ interface NavBarProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
 }
 
 const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
-
     const navigate = useNavigate();
+    const navStore = useAppStore().navigationStore
 
-    const [currentItemId, setCurrentItemId] = useState<string>('main')
 
     const onClickItemHandler = (item: NavItem) => {
         if (scrollProps?.current) {
             scrollProps.current.isAuto = true;
         }
-        setCurrentItemId(item.id)
+        navStore.setCurrentItemId(item.id)
         if (item.scrollToElement) {
             const element = document.getElementById(item.scrollToElement)
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+                element.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'})
             }
         }
     }
@@ -60,7 +61,7 @@ const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
             <NavItemComponent
                 key={item.id}
                 item={item}
-                currentItemId={currentItemId}
+                currentItemId={navStore.currentItemId}
                 onClick={() => onClickItemHandler(item)}
             />
         )
@@ -79,4 +80,4 @@ const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
     );
 };
 
-export default NavBar;
+export default observer(NavBar);

@@ -6,13 +6,21 @@
 }
 
 .bookNavWrapper {
-    flex: 1;
+    position: relative;
+    width: 350px;
+}
+
+.bookNavContainer {
+    position: sticky;
+    top: 0;
+    left: 0;
     background: #FFFFFF;
     box-shadow: 6px 0 30px rgba(0, 0, 0, 0.2);
     height: 80vh;
     display: flex;
     flex-direction: column;
 }
+
 
 .bookNavHeader {
     font-family: 'Open Sans', sans-serif;
@@ -68,22 +76,21 @@
     width: 100px;
 }
 
-.bookCards {
-    flex: 3;
+.bookCardsContainer {
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.bookCard {
-    width: 30%;
-    height: 50%;
+.bookCardContainer {
+    width: 100%;
+    min-height: 33vh;
     padding: 10px;
 }
 
 .bookCardImage {
     background-size: cover;
-    height: 80%;
+    min-height: 25vh;
 }
 
 .bookCardDescription {
@@ -106,3 +113,28 @@
     left: 0;
     top: 14px;
 }
+
+.bookCardsPaginationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.bookCardsPaginationButton {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #0F76B0;
+    border-bottom: 1px solid transparent;
+}
+
+.bookCardsPaginationButton:hover {
+    cursor: pointer;
+    border-bottom: 1px solid #0F76B0;
+}
+
+
+

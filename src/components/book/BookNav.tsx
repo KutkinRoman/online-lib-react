@@ -1,8 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './styles.css';
 import {InterfaceBookCategory} from "../../data/entities/BookCategory";
 import {BookCategoryService} from "../../data/services/BookCategoryService";
 import BookNavItem from "./BookNavItem";
+import {useAppStore} from "../../context/useAppStore";
+import {observer} from "mobx-react-lite";
+import {getBooksDemo} from "./BookCards";
 
 const categoriesDemo: InterfaceBookCategory[] = [
     {
@@ -31,22 +34,21 @@ const categoriesDemo: InterfaceBookCategory[] = [
     }
 ]
 const BookNav = () => {
+    const bookStore = useAppStore().bookStore
 
-    const [currentCategory, setCurrentCategory] = useState<InterfaceBookCategory | null>(null)
-
-    const [categories, setCategories] = useState<InterfaceBookCategory[]>([])
-
-    const onClickItemHandler = (category: InterfaceBookCategory) => setCurrentCategory(category)
+    const onClickItemHandler = (category: InterfaceBookCategory) => {
+        bookStore.setCurrentCategory(category)
+        bookStore.setBooks(getBooksDemo())
+    }
 
     useEffect(() => {
-
         const fetchCategories = async () => {
             const response = await BookCategoryService.getCategories();
             if (categoriesDemo.length > 0) {
-                setCurrentCategory(categoriesDemo[0])
+                bookStore.setCurrentCategory(categoriesDemo[0])
             }
-            setCategories(categoriesDemo)
-
+            bookStore.setCategories(categoriesDemo)
+            bookStore.setBooks(getBooksDemo())
         }
 
         fetchCategories()
@@ -54,21 +56,23 @@ const BookNav = () => {
 
     return (
         <div className={'bookNavWrapper'}>
-            <div className={'bookNavHeader'}>Категории</div>
-            <div className={'bookNavItems'}>
-                {categories.map(category => {
-                    return (
-                        <BookNavItem
-                            key={category.id}
-                            category={category}
-                            currentCategory={currentCategory}
-                            onClick={() => onClickItemHandler(category)}
-                        />
-                    )
-                })}
+            <div className={'bookNavContainer'}>
+                <div className={'bookNavHeader'}>Категории</div>
+                <div className={'bookNavItems'}>
+                    {bookStore.categories.map(category => {
+                        return (
+                            <BookNavItem
+                                key={category.id}
+                                category={category}
+                                currentCategory={bookStore.currentCategory}
+                                onClick={() => onClickItemHandler(category)}
+                            />
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );
 };
 
-export default BookNav;
+export default observer(BookNav);

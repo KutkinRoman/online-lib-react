@@ -7,7 +7,7 @@ const LandingBooks = () => {
     return (
         <div id={'landingBooksWrapper'} className={'landingBooksWrapper'}>
             <BookNav/>
-            <BookCards/>
+            <BookCards isShowAll/>
         </div>
     );
 };
