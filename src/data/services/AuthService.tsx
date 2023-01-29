@@ -7,10 +7,15 @@ export class AuthService {
         return await API.post<InterfaceAuthResponse>('/auth/login', data)
     }
 
+    public static async registration(data: any) {
+        return await API.post<InterfaceAuthResponse>('/auth/registration', data)
+    }
+
     public static async refresh(refreshToken: string) {
         return await API.post<InterfaceAuthResponse>('/auth/refresh', {
             refreshToken
         })
     }
+
 
 }

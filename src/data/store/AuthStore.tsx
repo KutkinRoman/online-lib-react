@@ -26,13 +26,19 @@ export class AuthStore {
     }
 
     async login(data: any) {
-        try {
-            const response = await AuthService.login(data)
-            this.updateLocalStorage(response.data)
-            this.initUser(response.data.accessToken)
-        } catch (e) {
-            console.error(e)
-        }
+        const response = await AuthService.login(data)
+        this.updateLocalStorage(response.data)
+        this.initUser(response.data.accessToken)
+    }
+
+    async registration(data: any) {
+        const response = await AuthService.registration(data)
+        this.updateLocalStorage(response.data)
+        this.initUser(response.data.accessToken)
+    }
+
+    logout(){
+        this.clear();
     }
 
     async refresh() {
@@ -83,4 +89,6 @@ export class AuthStore {
     getRefreshToken() {
         return localStorage.getItem(AuthStore.REFRESH_TOKEN_KEY)
     }
+
+
 }

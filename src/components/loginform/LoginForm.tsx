@@ -1,19 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import FormHeader from "../form/FormHeader";
 import TextFiled from "../form/TextFiled";
 import Button from "../form/Button";
 import './styles.css'
 import {useForm} from "react-hook-form";
 import {useAppStore} from "../../context/useAppStore";
+import {useNavigate} from "react-router-dom";
 
 const LoginForm = () => {
+    const navigate = useNavigate()
     const appStore = useAppStore()
-    const onSubmit = (data: any) =>  appStore.authStore.login(data);
+    const onSubmit = async (data: any)  =>  {
+        try {
+            await appStore.authStore.login(data)
+            navigate('/')
+        } catch (e) {
+            console.log(e)
+        }
+    };
 
     const {
         register,
         handleSubmit,
-        formState: {errors, isDirty, isValid, isLoading, isSubmitting, touchedFields, submitCount},
+        formState: {errors, isDirty, isValid, isLoading, isSubmitSuccessful,  isSubmitting, touchedFields, submitCount},
     } = useForm();
 
     const usernameRegister = register('username', {
@@ -25,6 +34,10 @@ const LoginForm = () => {
         required: true,
         minLength: 4
     })
+
+    useEffect(() => {
+        console.log('isSubmitSuccessful: ', isSubmitSuccessful)
+    }, [isSubmitSuccessful])
 
     return (
         <form className={'loginFormContainer'} onSubmit={handleSubmit(onSubmit)}>
@@ -44,6 +57,7 @@ const LoginForm = () => {
                     type={'submit'}
                     className={'loginSubmitButton'}
                     children={'Log in'}
+                    isLoading={isSubmitting}
                 />
             </div>
         </form>
