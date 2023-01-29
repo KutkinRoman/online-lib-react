@@ -7,15 +7,27 @@ import Footer from "../components/fotter/Footer";
 import LandingRule from "../components/rule/LandingRule";
 import Review from "../components/review/Review";
 import {API} from "../data/APICofig";
+import {useAppStore} from "../context/useAppStore";
 
 const LandingPage = () => {
+
+    const store = useAppStore()
 
     useEffect(() => {
         const echo = async () => {
             const response = await API.get('/echo')
             console.log('-- Echo -- : ', response.data)
         }
+        const testLogin = async () => {
+            await store.authStore.login({
+                username: 'admin@gmail.com',
+                password: 'admin'
+            })
+            console.log('-- Test Login -- : ', store.authStore.user)
+        }
+
         echo();
+        testLogin();
     }, [])
 
     const [isShowScrollNavBar, setIsShowScrollNavBar] = useState<boolean>(false)
@@ -28,7 +40,7 @@ const LandingPage = () => {
     function onScrollHandler(event: UIEvent) {
         if (event.currentTarget.scrollTop < scrollProps.current.top && event.currentTarget.scrollTop > 150) {
             setIsShowScrollNavBar(true)
-            console.log('current.top: ', scrollProps.current.top, 'top: ', event.currentTarget.scrollTop, 'isAuto: ', scrollProps.current.isAuto)
+            // console.log('current.top: ', scrollProps.current.top, 'top: ', event.currentTarget.scrollTop, 'isAuto: ', scrollProps.current.isAuto)
         } else {
             setIsShowScrollNavBar(false)
         }
