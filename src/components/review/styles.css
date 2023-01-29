@@ -45,7 +45,7 @@
     text-align: justify;
     letter-spacing: 0.155em;
     margin-left: -200px;
-    margin-top: -40%;
+    margin-top: 35%;
 }
 
 .reviewBookCover {
@@ -56,3 +56,53 @@
     top: 0;
 }
 
+
+.itWasAllADream {
+    width: 737px;
+    height: 33px;
+
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 164%;
+    /* identical to box height, or 33px */
+
+    text-align: justify;
+    letter-spacing: 0.155em;
+
+    color: #FFFFFF;
+
+    margin-left: -200px;
+    margin-top: -80%;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.authorOfReviewItem {
+    width: 120px;
+    height: 20px;
+
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 164%;
+    /* identical to box height, or 20px */
+
+    text-align: justify;
+    letter-spacing: 0.155em;
+
+    color: #FFFFFF;
+    margin-left: -200px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
