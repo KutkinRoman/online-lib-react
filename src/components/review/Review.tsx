@@ -4,7 +4,7 @@ import './styles.css';
 const Review  = () => {
     return (
         <div className={'reviewWrapper'}>
-            <div className={'footerTop container'}>
+            <div className={'reviewTop container'}>
                 <div className={'reviewBookCover'}> </div>
                 <div className={'reviewContentItems reviewItem '}>
 

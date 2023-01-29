@@ -22,27 +22,37 @@
     min-height: 1px;
     width: 961px;
     height: 268px;
-    left: 553px;
-    top: 200px;
+    padding-right: 300px;
+    padding-left: 300px;
+    padding-top: 300px;
     background: #008705;
+    margin-left: 400px;
+    margin-top: -30%;
+    left: 553px;
+    top: 0;
 }
 
 .reviewItemText {
-    font-family: 'Poppins', sans-serif;
+    vertical-align: 1000px;
+    width: 843px;
+    height: 80px;
+
+    font-family: 'Open Sans', serif;
     font-style: normal;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0.155em;
-    padding: 100px 0 100px 0;
-    top: 300px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 164%;
     text-align: justify;
-    background-size: cover;
+    letter-spacing: 0.155em;
+    margin-left: -200px;
+    margin-top: -40%;
 }
 
 .reviewBookCover {
     background: url("../../assect/ourServices/itWasAllADream.png") no-repeat center center;
     width: 384px;
     height: 500px;
-    background-size: cover;
+    left: 101px;
+    top: 0;
 }
+
