@@ -1,13 +1,13 @@
 import {API} from "../APICofig";
-import {InterfaceAuthResponse} from "../entities/AuthResponse";
+import {InterfaceBookCategory} from "../entities/BookCategory";
 
 export class BookCategoryService {
 
     static async getAll() {
-        return await API.get<InterfaceAuthResponse>('/book-categories/getAll')
+        return await API.get<InterfaceBookCategory[]>('/book-categories/getAll')
     }
 
     static async save(data: any) {
-        return await API.post<InterfaceAuthResponse>('/book-categories/save', data)
+        return await API.post<InterfaceBookCategory>('/book-categories/save', data)
     }
 }

@@ -1,6 +1,7 @@
 import {InterfaceBookCategory} from "../entities/BookCategory";
 import {InterfaceBook} from "../entities/Book";
 import {makeAutoObservable} from "mobx";
+import {BookCategoryService} from "../services/BookCategoryService";
 
 export class BookStore {
 
@@ -23,5 +24,10 @@ export class BookStore {
 
     setBooks(books: InterfaceBook[]) {
         this.books = books
+    }
+
+    async initCategories() {
+        const response = await BookCategoryService.getAll()
+        this.setCategories(response.data)
     }
 }

@@ -66,6 +66,7 @@
 }
 
 .formButton {
+    margin-top: 16px;
     background: #0F76B0;
     border-radius: 10px;
     height: 45px;

@@ -11,22 +11,6 @@ import ShowMoreButton from "../button/ShowMoreButton";
 
 export const getBooksDemo = () => {
     const booksDemo: InterfaceBook[] = []
-    for (let i = 0; i < 3; i++) {
-        booksDemo.push({
-            id: Math.random().toString(),
-            name: 'Психология денег',
-            description: 'Психология денег: вечные уроки о богатстве, жадности и счастье',
-            coverLink: 'https://m.media-amazon.com/images/I/51czv9wjmYL._AC_SY1000_.jpg',
-            price: 1250.00
-        })
-        booksDemo.push({
-            id: Math.random().toString(),
-            name: 'Богатый папа',
-            description: 'Богатый папа, бедный папа: Чему богатые учат своих детей о деньгах, чего нет у бедных и среднего класса!',
-            coverLink: 'https://m.media-amazon.com/images/I/51czv9wjmYL._AC_SY1000_.jpg',
-            price: 1120.00
-        })
-    }
     return booksDemo
 }
 

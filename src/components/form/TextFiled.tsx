@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import './styles.css';
 
-interface TextFiledProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+export interface TextFiledProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     label?: string | undefined,
     register?: any;
 }
@@ -9,11 +9,7 @@ interface TextFiledProps extends React.DetailedHTMLProps<React.InputHTMLAttribut
 const TextFiled = ({label, className, register, id, ...props}: TextFiledProps) => {
 
     const inputId = useMemo(() => {
-        return (id)
-            ? id
-            : (register)
-                ? register.name
-                : 'input_' + Math.random()
+        return (id) ? id : (register) ? register.name : 'input_' + Math.random()
     }, [register, id])
 
     return (

@@ -1,38 +1,11 @@
 import React, {useEffect} from 'react';
 import './styles.css';
 import {InterfaceBookCategory} from "../../data/entities/BookCategory";
-import {BookCategoryService} from "../../data/services/BookCategoryService";
 import BookNavItem from "./BookNavItem";
 import {useAppStore} from "../../context/useAppStore";
 import {observer} from "mobx-react-lite";
 import {getBooksDemo} from "./BookCards";
 
-const categoriesDemo: InterfaceBookCategory[] = [
-    {
-        id: '1',
-        name: 'Приключения'
-    },
-    {
-        id: '2',
-        name: 'Лучшее'
-    },
-    {
-        id: '3',
-        name: 'Классика'
-    },
-    {
-        id: '4',
-        name: 'Философия'
-    },
-    {
-        id: '5',
-        name: 'Путешествия'
-    },
-    {
-        id: '6',
-        name: 'История'
-    }
-]
 const BookNav = () => {
     const bookStore = useAppStore().bookStore
 
@@ -42,16 +15,14 @@ const BookNav = () => {
     }
 
     useEffect(() => {
-        const fetchCategories = async () => {
-            const response = await BookCategoryService.getCategories();
-            if (categoriesDemo.length > 0) {
-                bookStore.setCurrentCategory(categoriesDemo[0])
+        const initCategories = async () => {
+            await bookStore.initCategories()
+            if (bookStore.categories.length > 0){
+                bookStore.setCurrentCategory(bookStore.categories[0])
             }
-            bookStore.setCategories(categoriesDemo)
             bookStore.setBooks(getBooksDemo())
         }
-
-        fetchCategories()
+        initCategories()
     }, [])
 
     return (
