@@ -13,6 +13,7 @@ export class AuthStore {
     user?: UserStore = undefined
 
     constructor() {
+        this.checkTokenAndInitUser();
         makeAutoObservable(this)
     }
 
@@ -28,23 +29,29 @@ export class AuthStore {
         try {
             const response = await AuthService.login(data)
             this.updateLocalStorage(response.data)
-            this.initUser(response.data)
+            this.initUser(response.data.accessToken)
         } catch (e) {
             console.error(e)
         }
     }
 
     async refresh() {
-        const refreshToken = localStorage.getItem(AuthStore.REFRESH_TOKEN_KEY)
-        if (refreshToken) {
+        const token = this.getRefreshToken();
+        if (token) {
             try {
-                const response = await AuthService.refresh(refreshToken)
+                const response = await AuthService.refresh(token)
                 this.updateLocalStorage(response.data)
-                this.initUser(response.data)
+                this.initUser(response.data.accessToken)
             } catch (e) {
                 console.error(e)
             }
         }
+    }
+
+    clear() {
+        this.user = undefined
+        localStorage.removeItem(AuthStore.REFRESH_TOKEN_KEY)
+        localStorage.removeItem(AuthStore.ACCESS_TOKEN_KEY)
     }
 
     updateLocalStorage(response: InterfaceAuthResponse) {
@@ -52,12 +59,28 @@ export class AuthStore {
         localStorage.setItem(AuthStore.ACCESS_TOKEN_KEY, response.accessToken)
     }
 
-    initUser(response: InterfaceAuthResponse) {
-        const jwtDecode = jwt_decode<InterfaceAccessTokenDecode>(response.accessToken)
-        this.user = new UserStore(jwtDecode.sub, jwtDecode.roles)
+    checkTokenAndInitUser() {
+        const token = this.getAccessToken();
+        if (token) {
+            this.initUser(token)
+        }
+    }
+
+    initUser(accessToken: string) {
+        try {
+            const jwtDecode = jwt_decode<InterfaceAccessTokenDecode>(accessToken)
+            this.user = new UserStore(jwtDecode.sub, jwtDecode.roles)
+        } catch (e) {
+            this.clear()
+            console.error(e)
+        }
     }
 
     getAccessToken() {
-        localStorage.getItem(AuthStore.ACCESS_TOKEN_KEY)
+        return localStorage.getItem(AuthStore.ACCESS_TOKEN_KEY)
+    }
+
+    getRefreshToken() {
+        return localStorage.getItem(AuthStore.REFRESH_TOKEN_KEY)
     }
 }
