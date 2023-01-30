@@ -5,7 +5,7 @@ import BlogPagination from "./BlogPagination";
 
 const BlogLanding = () => {
     return (
-        <div className={'blogLandingWrapper'}>
+        <div id={'blogsLandingWrapper'} className={'blogLandingWrapper'}>
             <div className={'container'}>
                 <div className={'blogLandingHeader'}>
                     <div className={'blogLandingHeaderTitle'} children={'Блоги'}/>

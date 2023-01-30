@@ -21,6 +21,7 @@ const items: NavItem[] = [
     {
         id: 'blogs',
         name: 'Блоги',
+        scrollToElement: 'blogsLandingWrapper'
     },
     {
         id: 'about',
