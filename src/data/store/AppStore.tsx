@@ -3,6 +3,7 @@ import {makeAutoObservable} from "mobx";
 import {NavigationStore} from "./NavigationStore";
 import {BookStore} from "./BookStore";
 import {AuthorStore} from "./AuthorStore";
+import {OrderFeedbacksStore} from "./OrderFeedbacksStore";
 
 export class AppStore {
 
@@ -13,6 +14,8 @@ export class AppStore {
     bookStore = new BookStore()
 
     authorStore = new AuthorStore()
+
+    orderFeedbacksStore = new OrderFeedbacksStore()
 
     constructor(authStore: AuthStore) {
         this.authStore = authStore;

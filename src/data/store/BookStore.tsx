@@ -32,27 +32,37 @@ export class BookStore extends PageStore<InterfaceBook> {
     }
 
     async initPageByCategory(category: InterfaceBookCategory | null) {
-        this.isLoading = true
-        const response = await BookService.getPageByParams({
-            categoryId: category && category.id,
-            page: 0,
-            size: 6
-        })
-        this.setContent(response.data.content)
-        this.updateParams(response.data)
-        this.isLoading = false
+      try {
+          this.isLoading = true
+          const response = await BookService.getPageByParams({
+              categoryId: category && category.id,
+              page: 0,
+              size: 6
+          })
+          this.setContent(response.data.content)
+          this.updateParams(response.data)
+      }catch (e){
+          console.error(e)
+      } finally {
+          this.isLoading = false
+      }
     }
 
     async nextPageByCategory(category: InterfaceBookCategory | null) {
-        this.isLoading = true
-        const response = await BookService.getPageByParams({
-            categoryId: category && category.id,
-            page: this.number + 1,
-            size: 6
-        })
-        this.setContent([...this.content, ...response.data.content])
-        this.updateParams(response.data)
-        this.isLoading = false
+        try {
+            this.isLoading = true
+            const response = await BookService.getPageByParams({
+                categoryId: category && category.id,
+                page: this.number + 1,
+                size: 6
+            })
+            this.setContent([...this.content, ...response.data.content])
+            this.updateParams(response.data)
+        }catch (e){
+            console.error(e)
+        } finally {
+            this.isLoading = false
+        }
     }
 
     updateParams(data: any) {
