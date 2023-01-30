@@ -7,6 +7,7 @@ import Footer from "../components/fotter/Footer";
 import LandingRule from "../components/rule/LandingRule";
 import Review from "../components/review/Review";
 import OrderFeedbackLanding from "../components/orderfeedback/OrderFeedbackLanding";
+import ContactUsLanding from "../components/contactus/ContactUsLanding";
 
 const LandingPage = () => {
 
@@ -40,6 +41,7 @@ const LandingPage = () => {
             <LandingBooks/>
             <Review/>
             <OrderFeedbackLanding/>
+            <ContactUsLanding/>
             <LandingRule/>
             <Footer/>
         </div>

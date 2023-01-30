@@ -1,0 +1,102 @@
+
+.contactUsLandingWrapper {
+
+}
+
+.contactUsLandingHeader {
+    background: #CDE5F2;
+    padding: 20px;
+}
+
+.contactUsLandingHeaderTitle {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+}
+
+.contactUsLandingHeaderDescription {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #5F5F5F;
+}
+
+.contactUsLandingContent {
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.contactUsLandingContactsCard {
+    flex: 1;
+
+}
+
+.contactUsLandingContactsImage {
+    background: url("../../assect/landingPage/contacts-image.png") no-repeat center;
+    background-size: cover;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.contactUsLandingMessageCard {
+    flex: 1;
+}
+
+.contactUsLandingContactsCardContent {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.contactUsLandingContactsCardContentItem {
+    height: 150px;
+    flex: 1;
+}
+
+.contactUsLandingContactsCardContentItemPhones{
+    display: flex;
+    flex-direction: column;
+}
+
+.contactUsLandingContactsCardContentItemTitle {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.contactUsLandingContactsCardContentItemBody {
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.contactUsLandingContactsCardContentItemBodyText {
+    font-family: 'Poppins', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 155%;
+    letter-spacing: 0.05em;
+    color: #0F76B0;
+}

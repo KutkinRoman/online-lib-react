@@ -29,6 +29,7 @@ const items: NavItem[] = [
     {
         id: 'contact_us',
         name: 'Связаться с нами',
+        scrollToElement: 'contactUsLandingWrapper'
     }
 ]
 
