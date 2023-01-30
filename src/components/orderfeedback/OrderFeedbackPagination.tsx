@@ -1,4 +1,4 @@
-import {IconButton} from '@mui/material';
+import {CircularProgress, IconButton} from '@mui/material';
 import React from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -11,16 +11,22 @@ const OrderFeedbackPagination = () => {
 
     return (
         <div className={'orderFeedbackPaginationContainer'}>
-            <IconButton color="primary" aria-label="upload picture" component="label"
-                        onClick={() => store.initPrevPage()}
-                        disabled={store.isFirst}>
-                <ChevronLeftIcon/>
-            </IconButton>
-            <IconButton color="primary" aria-label="upload picture" component="label"
-                        onClick={() => store.initNextPage()}
-                        disabled={store.isLast}>
-                <ChevronRightIcon/>
-            </IconButton>
+            {store.isLoading
+                ? <CircularProgress color={'primary'} size={25}/>
+                : <React.Fragment>
+                    <IconButton color="primary" aria-label="upload picture" component="label"
+                                onClick={() => store.initPrevPage()}
+                                disabled={store.isFirst}>
+                        <ChevronLeftIcon/>
+                    </IconButton>
+                    <IconButton color="primary" aria-label="upload picture" component="label"
+                                onClick={() => store.initNextPage()}
+                                disabled={store.isLast}>
+                        <ChevronRightIcon/>
+                    </IconButton>
+                </React.Fragment>
+            }
+
         </div>
     );
 };
