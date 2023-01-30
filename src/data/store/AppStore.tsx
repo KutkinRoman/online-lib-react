@@ -4,6 +4,7 @@ import {NavigationStore} from "./NavigationStore";
 import {BookStore} from "./BookStore";
 import {AuthorStore} from "./AuthorStore";
 import {OrderFeedbacksStore} from "./OrderFeedbacksStore";
+import {BlogsStore} from "./BlogsStore";
 
 export class AppStore {
 
@@ -16,6 +17,8 @@ export class AppStore {
     authorStore = new AuthorStore()
 
     orderFeedbacksStore = new OrderFeedbacksStore()
+
+    blogsStore = new BlogsStore()
 
     constructor(authStore: AuthStore) {
         this.authStore = authStore;

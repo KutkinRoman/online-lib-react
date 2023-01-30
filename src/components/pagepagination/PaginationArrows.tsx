@@ -2,6 +2,7 @@ import React from 'react';
 import {CircularProgress, IconButton} from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import './styles.css'
 
 interface PaginationArrows extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 
@@ -13,9 +14,20 @@ interface PaginationArrows extends React.DetailedHTMLProps<React.HTMLAttributes<
     onNext: () => void;
 }
 
-const PaginationArrows = ({isLoading, isPrevDisable, isNextDisable, onPrev, onNext, ...props}: PaginationArrows) => {
+const PaginationArrows = ({
+                              isLoading,
+                              isPrevDisable,
+                              isNextDisable,
+                              onPrev,
+                              onNext,
+                              className,
+                              ...props
+                          }: PaginationArrows) => {
     return (
-        <div {...props}>
+        <div
+            className={['paginationArrowsContainer', className].join(' ')}
+            {...props}
+        >
             {isLoading
                 ? <CircularProgress color={'primary'} size={25}/>
                 : <React.Fragment>

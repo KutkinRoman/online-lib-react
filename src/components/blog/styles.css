@@ -1,0 +1,57 @@
+
+.blogLandingWrapper {
+
+}
+
+.blogLandingHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 50px;
+}
+
+.blogLandingHeaderTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0F76B0;
+}
+
+.blogLandingCards {
+
+}
+
+.blogLandingCard {
+
+}
+
+.blogLandingCardImage {
+    background-size: cover;
+    height: 350px;
+    border-radius: 15px;
+}
+
+.blogLandingCardName {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 155%;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+
+.blogLandingPaginationWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.blogLandingPagination {
+
+}
+

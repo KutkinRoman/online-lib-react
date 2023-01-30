@@ -65,13 +65,4 @@ export class BookStore extends PageStore<InterfaceBook> {
         }
     }
 
-    updateParams(data: any) {
-        this.isFirst = data.isFirst
-        this.isLast = data.isLast
-        this.isEmpty = data.isEmpty
-        this.totalElements = data.totalElements
-        this.totalPages = data.totalPages
-        this.size = data.size
-        this.number = data.number
-    }
 }
