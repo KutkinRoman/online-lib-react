@@ -1,28 +1,21 @@
 import {InterfaceBookCategory} from "../entities/BookCategory";
 import {InterfaceBook} from "../entities/Book";
-import {makeAutoObservable} from "mobx";
+import {makeObservable, observable} from "mobx";
 import {BookCategoryService} from "../services/BookCategoryService";
 import {BookService} from "../services/BookService";
+import {PageStore} from "./PageStore";
 
-export class BookStore {
+export class BookStore extends PageStore<InterfaceBook> {
 
     categories: InterfaceBookCategory[] = []
     currentCategory: InterfaceBookCategory | null = null
 
-    books: InterfaceBook[] = []
-
-    isFirst = true;
-    isLast = false;
-    isEmpty = true;
-    totalElements = 0;
-    totalPages = 0;
-    size = 0;
-    number = 0;
-
-    isLoading = false
-
     constructor() {
-        makeAutoObservable(this)
+        super()
+        makeObservable(this, {
+            categories: observable,
+            currentCategory: observable
+        })
     }
 
     setCategories(categories: InterfaceBookCategory[]) {
@@ -31,10 +24,6 @@ export class BookStore {
 
     setCurrentCategory(currentCategory: InterfaceBookCategory | null) {
         this.currentCategory = currentCategory
-    }
-
-    setBooks(books: InterfaceBook[]) {
-        this.books = books
     }
 
     async initCategories() {
@@ -49,7 +38,7 @@ export class BookStore {
             page: 0,
             size: 6
         })
-        this.setBooks(response.data.content)
+        this.setContent(response.data.content)
         this.updateParams(response.data)
         this.isLoading = false
     }
@@ -61,7 +50,7 @@ export class BookStore {
             page: this.number + 1,
             size: 6
         })
-        this.setBooks([...this.books, ...response.data.content])
+        this.setContent([...this.content, ...response.data.content])
         this.updateParams(response.data)
         this.isLoading = false
     }

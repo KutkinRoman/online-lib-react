@@ -38,7 +38,7 @@ const BookCards = ({isPagination, isShowAll}: BookCardsProps) => {
     return (
         <div className={'bookCardsContainer'}>
             <Grid container spacing={2} flex={1}>
-                {bookStore.books.map(book => {
+                {bookStore.content.map(book => {
                     return (
                         <BookCard
                             key={book.id}
