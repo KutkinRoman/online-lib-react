@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'
 import ContactsCard from "./ContactsCard";
-import MessageCard from "./MessageCard";
+import MessageForm from "./MessageForm";
 
 const ContactUsLanding = () => {
     return (
@@ -19,7 +19,7 @@ const ContactUsLanding = () => {
             <div className={'container'}>
                 <div className={'contactUsLandingContent'}>
                     <ContactsCard/>
-                    <MessageCard/>
+                    <MessageForm/>
                 </div>
             </div>
         </div>

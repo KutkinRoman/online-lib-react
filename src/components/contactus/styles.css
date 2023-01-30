@@ -49,10 +49,6 @@
     border-radius: 15px;
 }
 
-.contactUsLandingMessageCard {
-    flex: 1;
-}
-
 .contactUsLandingContactsCardContent {
     padding-top: 40px;
     display: flex;
@@ -64,7 +60,7 @@
     flex: 1;
 }
 
-.contactUsLandingContactsCardContentItemPhones{
+.contactUsLandingContactsCardContentItemPhones {
     display: flex;
     flex-direction: column;
 }
@@ -99,4 +95,27 @@
     line-height: 155%;
     letter-spacing: 0.05em;
     color: #0F76B0;
+}
+
+.contactUsLandingMessageFormContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactUsLandingMessageFormTitle {
+    width: 550px;
+}
+
+.contactUsLandingMessageForm {
+    width: 350px;
+}
+
+.contactUsLandingMessageFormTextAreaContainer {
+    height: 100px;
+}
+
+.contactUsLandingMessageFormTextArea {
+    resize: none;
 }
