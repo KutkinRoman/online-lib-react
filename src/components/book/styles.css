@@ -1,6 +1,5 @@
 .landingBooksWrapper {
     background: #F1FAFF;
-    min-height: 100vh;
     display: flex;
     flex-direction: row;
 }
@@ -80,24 +79,95 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .bookCardContainer {
-    width: 100%;
-    min-height: 33vh;
+    width: 350px;
+    min-height: 500px;
     padding: 10px;
+    position: relative;
+}
+
+.bookCardActions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.bookCardActionsItem {
+    background: #fff;
+    border-radius: 50%;
+    margin-top: 15px;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookCardActionsItem:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.bookCardImageContainer {
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
 }
 
 .bookCardImage {
     background-size: cover;
-    min-height: 25vh;
+    width: 100%;
+    height: 100%;
+}
+
+.bookCardContentContainer {
+    min-height: 150px;
+}
+
+.bookCardContentItem {
+    padding-top: 10px;
+}
+
+.bookCardAuthors {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 164%;
+    text-align: justify;
+    letter-spacing: 0.155em;
+    color: #5F5F5F;
+}
+
+.bookCardRatingContainer {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.bookCardRatingCount {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #0F0F0F;
 }
 
 .bookCardDescription {
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 164%;
     text-align: justify;
     letter-spacing: 0.155em;

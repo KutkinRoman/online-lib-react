@@ -13,6 +13,10 @@ export interface InterfaceBook {
 
     price: number;
 
+    rating: number;
+
+    ratingCount: number;
+
     categories: InterfaceBookCategory[]
 
     authors: InterfaceAuthor[]
