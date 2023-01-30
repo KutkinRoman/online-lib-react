@@ -2,6 +2,7 @@ import React from 'react';
 import BookNav from "../components/book/BookNav";
 import BookCards from "../components/book/BookCards";
 import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/fotter/Footer";
 
 const BooksPage = () => {
     return (
@@ -11,6 +12,7 @@ const BooksPage = () => {
                 <BookNav/>
                 <BookCards isPagination/>
             </div>
+            <Footer/>
         </div>
     );
 };
