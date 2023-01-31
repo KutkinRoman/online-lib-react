@@ -7,10 +7,10 @@ export interface InterfaceOrderFeedback {
 
     rating: number;
 
-    book: {
+    orderBook: {
         id: string;
         coverLink: string;
     }
 
-    user: InterfaceUserInfo;
+    orderOwner: InterfaceUserInfo;
 }
