@@ -9,6 +9,7 @@ import Review from "../components/review/Review";
 import OrderFeedbackLanding from "../components/orderfeedback/OrderFeedbackLanding";
 import ContactUsLanding from "../components/contactus/ContactUsLanding";
 import BlogLanding from "../components/blog/BlogLanding";
+import ServicesLanding from "../components/services/ServicesLanding";
 
 const LandingPage = () => {
 
@@ -41,6 +42,7 @@ const LandingPage = () => {
             </div>
             <LandingBooks/>
             <Review/>
+            <ServicesLanding/>
             <OrderFeedbackLanding/>
             <BlogLanding/>
             <ContactUsLanding/>

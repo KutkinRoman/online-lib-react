@@ -1,0 +1,50 @@
+
+.servicesWrapper {
+
+}
+
+.servicesContainer {
+    padding: 30px;
+}
+
+.servicesTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0F0F0F;
+}
+
+.servicesCards {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.servicesCard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicesCardImage {
+    width: 100px;
+    height: 100px;
+}
+
+.servicesCardName {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 164%;
+    letter-spacing: 0.155em;
+    color: #0F0F0F;
+    padding: 30px;
+    text-align: center;
+}
