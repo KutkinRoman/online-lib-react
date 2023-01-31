@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.css';
-import {ReviewEntity} from "../../data/entities/ReviewEntity";
+import {IReviewEntity} from "../../data/entities/IReviewEntity";
 
 
-const justinReview: ReviewEntity = {
+const justinReview: IReviewEntity = {
     title: 'It Was All a Dream: Biggie and the World That Made Him',
     authorOfReview: 'Джастин Тинсли',
     rating:'',
