@@ -43,21 +43,18 @@ export class AuthStore {
         this.initUser(response.data.accessToken)
     }
 
-    logout(){
+    logout() {
         this.clear();
     }
 
     async refresh() {
         const token = this.getRefreshToken();
-        if (token) {
-            try {
-                const response = await AuthService.refresh(token)
-                this.updateLocalStorage(response.data)
-                this.initUser(response.data.accessToken)
-            } catch (e) {
-                console.error(e)
-            }
+        if (!token) {
+            throw Error('Refresh Token not found')
         }
+        const response = await AuthService.refresh(token)
+        this.updateLocalStorage(response.data)
+        this.initUser(response.data.accessToken)
     }
 
     clear() {
@@ -95,7 +92,6 @@ export class AuthStore {
     getRefreshToken() {
         return localStorage.getItem(AuthStore.REFRESH_TOKEN_KEY)
     }
-
 
 
 }

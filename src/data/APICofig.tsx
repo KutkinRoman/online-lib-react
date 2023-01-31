@@ -22,11 +22,13 @@ AUTH_API.interceptors.response.use((config) => {
         originalRequest.isRetry = true
         try {
             await authStore.refresh()
-            return AUTH_API.request(originalRequest)
+            return await AUTH_API.request(originalRequest)
         } catch (e) {
+            authStore.clear()
             throw error
         }
     } else {
+        authStore.clear()
         throw error
     }
 })
