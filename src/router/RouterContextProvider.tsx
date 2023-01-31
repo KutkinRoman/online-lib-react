@@ -6,8 +6,13 @@ import SignUpPage from "../pages/SignUpPage";
 import UserVerificationPage from "../pages/UserVerificationPage";
 import BooksPage from "../pages/BooksPage";
 import BookEditPage from "../pages/BookEditPage";
+import {useAppStore} from "../context/useAppStore";
+import ShoppingCartPage from "../pages/ShoppingCartPage";
+import {observer} from "mobx-react-lite";
 
 const RouterContextProvider = () => {
+    const authStore = useAppStore().authStore
+
     return (
         <Routes>
             <Route path={'/'} element={<LandingPage/>}/>
@@ -17,8 +22,9 @@ const RouterContextProvider = () => {
             <Route path={'/user-verification'} element={<UserVerificationPage/>}/>
             <Route path={'/books'} element={<BooksPage/>}/>
             <Route path={'/book-edit'} element={<BookEditPage/>}/>
+            <Route path={'/shopping-cart'} element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
         </Routes>
     );
 };
 
-export default RouterContextProvider;
+export default observer(RouterContextProvider);
