@@ -26,6 +26,7 @@ const items: NavItem[] = [
     {
         id: 'about',
         name: 'О нас',
+        scrollToElement: 'footerWrapper'
     },
     {
         id: 'contact_us',

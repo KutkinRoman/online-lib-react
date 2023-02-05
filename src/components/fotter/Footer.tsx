@@ -3,7 +3,7 @@ import './styles.css';
 
 const Footer = () => {
     return (
-        <div className={'footerWrapper'}>
+        <div id={'footerWrapper'} className={'footerWrapper'}>
             <div className={'footerTop container'}>
                 <div className={'footerTopLogo'}/>
             </div>
