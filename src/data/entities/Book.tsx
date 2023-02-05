@@ -20,4 +20,6 @@ export interface InterfaceBook {
     categories: InterfaceBookCategory[]
 
     authors: InterfaceAuthor[]
+
+    isFavourite:boolean
 }

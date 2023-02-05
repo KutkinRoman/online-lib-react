@@ -4,6 +4,7 @@ import {makeObservable, observable} from "mobx";
 import {BookCategoryService} from "../services/BookCategoryService";
 import {BookService} from "../services/BookService";
 import {PageStore} from "./PageStore";
+import {BookCardStore} from "./BookCardStore";
 
 export class BookStore extends PageStore<InterfaceBook> {
 
@@ -24,6 +25,10 @@ export class BookStore extends PageStore<InterfaceBook> {
 
     setCurrentCategory(currentCategory: InterfaceBookCategory | null) {
         this.currentCategory = currentCategory
+    }
+
+    setContent(content: InterfaceBook[]) {
+        super.setContent(content.map(BookCardStore.create))
     }
 
     async initCategories() {

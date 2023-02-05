@@ -4,6 +4,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import {observer} from "mobx-react-lite";
 
 interface BookCardActions {
     book: InterfaceBook;
@@ -19,13 +20,18 @@ const BookCardActions = ({book}: BookCardActions) => {
                 <ShoppingCartIcon/>
             </div>
             <div className={'bookCardActionsItem'}>
-                <FavoriteBorderIcon/>
+                {book.isFavourite
+                    ? <FavoriteIcon/>
+                    : <FavoriteBorderIcon/>}
             </div>
-            <div className={'bookCardActionsItem'}>
-                <FavoriteIcon/>
-            </div>
+            {/*<div className={'bookCardActionsItem'}>*/}
+            {/*    <FavoriteBorderIcon/>*/}
+            {/*</div>*/}
+            {/*<div className={'bookCardActionsItem'}>*/}
+            {/*    <FavoriteIcon/>*/}
+            {/*</div>*/}
         </div>
     );
 };
 
-export default BookCardActions
+export default observer(BookCardActions)
