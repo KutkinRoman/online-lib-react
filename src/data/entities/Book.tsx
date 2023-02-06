@@ -22,4 +22,6 @@ export interface InterfaceBook {
     authors: InterfaceAuthor[]
 
     isFavourite:boolean
+
+    setIsFavourite(isFavourite: boolean) : void
 }

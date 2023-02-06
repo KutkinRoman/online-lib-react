@@ -11,6 +11,9 @@ interface BookCardActions {
 }
 
 const BookCardActions = ({book}: BookCardActions) => {
+
+    const onClickFavorite = () => book.setIsFavourite(!book.isFavourite)
+
     return (
         <div className={'bookCardActions'}>
             <div className={'bookCardActionsItem'}>
@@ -19,17 +22,11 @@ const BookCardActions = ({book}: BookCardActions) => {
             <div className={'bookCardActionsItem'}>
                 <ShoppingCartIcon/>
             </div>
-            <div className={'bookCardActionsItem'}>
+            <div className={'bookCardActionsItem'} >
                 {book.isFavourite
-                    ? <FavoriteIcon/>
-                    : <FavoriteBorderIcon/>}
+                    ? <FavoriteIcon onClick={onClickFavorite}/>
+                    : <FavoriteBorderIcon  onClick={onClickFavorite}/>}
             </div>
-            {/*<div className={'bookCardActionsItem'}>*/}
-            {/*    <FavoriteBorderIcon/>*/}
-            {/*</div>*/}
-            {/*<div className={'bookCardActionsItem'}>*/}
-            {/*    <FavoriteIcon/>*/}
-            {/*</div>*/}
         </div>
     );
 };
