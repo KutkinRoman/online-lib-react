@@ -16,24 +16,30 @@ const Footer = () => {
                     <div className={'footerContentItemLine'}>
                         <div className={'footerHouseIcon'}/>
                         <div id={'footerAddressText'} className={'footerAddressText'}>
-                            Казахстан, Алматы, Абая, 14
+                            г.Алматы<br/>Абая 14
                         </div>
                     </div>
 
                     <div className={'footerContentItemLine'}>
-                        <div className={'footerHouseIcon'}/>
+                        <div className={'footerPhoneIcon'}/>
                         <div id={'footerAddressText'} className={'footerAddressText'}>
-                            Казахстан, Алматы, Абая, 14
+                            +7 (777)-777-77-77
+                            <br/>
+                            +7 (702)-777-77-77
                         </div>
                     </div>
 
                     <div className={'footerContentItemLine'}>
-                        <div className={'footerHouseIcon'}/>
+                        <div className={'footerClockIcon'}/>
                         <div id={'footerAddressText'} className={'footerAddressText'}>
-                            Казахстан, Алматы, Абая, 14
+                            Пн-Вс <br/> 10:00 - 20:00
                         </div>
                     </div>
 
+                    {/*<div className={'footerContentItemLine'}>*/}
+                    <div className={'footerFaceBookIcon'}/>
+                    <div className={'footerTwitterBookIcon'}/>
+                    {/*</div>*/}
                 </div>
 
                 <div className={'footerContentItem'}>
@@ -54,7 +60,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className={'footerCopyright'}>
-                &copy; 2023 Copyright LearnHub Library | Deisgned by Abel
+                &copy; 2023 Copyright LearnHub Library
             </div>
         </div>
     );
