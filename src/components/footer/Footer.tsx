@@ -6,17 +6,38 @@ const Footer = () => {
         <div id={'footerWrapper'} className={'footerWrapper'}>
             <div className={'footerTop container'}>
                 <div className={'footerTopLogo'}/>
-                <div className={'footerHouseIcon'}/>
-                <div id ={'footerAddressText'} className={'footerAddressText'}>
-                    Казахстан, Алматы, Абая, 14
-                </div>
             </div>
             <div className={'footerLine'}/>
+
             <div className={'footerContent container'}>
-                <div className={'footerContentItem'}>
+
+                <div className={'footerContentItem footerContentItemContacts'}>
+
+                    <div className={'footerContentItemLine'}>
+                        <div className={'footerHouseIcon'}/>
+                        <div id={'footerAddressText'} className={'footerAddressText'}>
+                            Казахстан, Алматы, Абая, 14
+                        </div>
+                    </div>
+
+                    <div className={'footerContentItemLine'}>
+                        <div className={'footerHouseIcon'}/>
+                        <div id={'footerAddressText'} className={'footerAddressText'}>
+                            Казахстан, Алматы, Абая, 14
+                        </div>
+                    </div>
+
+                    <div className={'footerContentItemLine'}>
+                        <div className={'footerHouseIcon'}/>
+                        <div id={'footerAddressText'} className={'footerAddressText'}>
+                            Казахстан, Алматы, Абая, 14
+                        </div>
+                    </div>
 
                 </div>
+
                 <div className={'footerContentItem'}>
+
                     <div className={'footerInfoTitle'}>
                         О библиотеке OnlineLib
                     </div>
@@ -27,8 +48,9 @@ const Footer = () => {
                         делать покупки онлайн.
                     </div>
                 </div>
-                <div className={'footerContentItem'}>
 
+                <div className={'footerContentItem'}>
+                    {/**/}
                 </div>
             </div>
             <div className={'footerCopyright'}>
