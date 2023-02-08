@@ -2,7 +2,7 @@ import React from 'react';
 import BookNav from "../components/book/BookNav";
 import BookCards from "../components/book/BookCards";
 import NavBar from "../components/navbar/NavBar";
-import Footer from "../components/fotter/Footer";
+import Footer from "../components/footer/Footer";
 
 const BooksPage = () => {
     return (

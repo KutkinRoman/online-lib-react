@@ -6,6 +6,10 @@ const Footer = () => {
         <div id={'footerWrapper'} className={'footerWrapper'}>
             <div className={'footerTop container'}>
                 <div className={'footerTopLogo'}/>
+                <div className={'footerHouseIcon'}/>
+                <div id ={'footerAddressText'} className={'footerAddressText'}>
+                    Казахстан, Алматы, Абая, 14
+                </div>
             </div>
             <div className={'footerLine'}/>
             <div className={'footerContent container'}>

@@ -3,7 +3,7 @@ import './styles.css';
 import NavBar from "../components/navbar/NavBar";
 import LandingMain from "../components/landing/LandingMain";
 import LandingBooks from "../components/book/LandingBooks";
-import Footer from "../components/fotter/Footer";
+import Footer from "../components/footer/Footer";
 import LandingRule from "../components/rule/LandingRule";
 import Review from "../components/review/Review";
 import OrderFeedbackLanding from "../components/orderfeedback/OrderFeedbackLanding";
