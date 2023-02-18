@@ -21,8 +21,12 @@ const RouterContextProvider = () => {
             <Route path={'/landing-page'} element={<LandingPage/>}/>
             <Route path={'/user-verification'} element={<UserVerificationPage/>}/>
             <Route path={'/books'} element={<BooksPage/>}/>
-            <Route path={'/book-edit'} element={<BookEditPage/>}/>
             <Route path={'/shopping-cart'} element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
+            {authStore.isAdmin() &&
+                <Route path={'book-edit'}>
+                    <Route path={':bookId'} element={<BookEditPage/>}/>
+                </Route>
+            }
         </Routes>
     );
 };

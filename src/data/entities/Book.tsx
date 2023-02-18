@@ -11,6 +11,8 @@ export interface InterfaceBook {
 
     coverLink: string;
 
+    ebookLink: string;
+
     price: number;
 
     rating: number;

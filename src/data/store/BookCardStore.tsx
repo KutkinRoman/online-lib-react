@@ -8,6 +8,8 @@ export class BookCardStore implements InterfaceBook {
     authors: InterfaceAuthor[];
     categories: InterfaceBookCategory[];
     coverLink: string;
+
+    ebookLink: string;
     description: string;
     id: string;
     name: string;
@@ -21,6 +23,7 @@ export class BookCardStore implements InterfaceBook {
         this.authors = b.authors;
         this.categories = b.categories;
         this.coverLink = b.coverLink;
+        this.ebookLink = b.ebookLink;
         this.description = b.description;
         this.id = b.id;
         this.name = b.name;

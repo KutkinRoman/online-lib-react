@@ -13,7 +13,6 @@ function Select<T>({label, className, register, id, items, getLabelItem, getOpti
         return (id) ? id : (register) ? register.name : 'input_' + Math.random()
     }, [register, id])
 
-
     const options = useMemo(() => {
         return (
             <React.Fragment>

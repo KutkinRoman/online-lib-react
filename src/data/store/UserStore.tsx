@@ -14,9 +14,9 @@ export enum UserRole {
 
 export class UserStore {
 
-    readonly username: string
+    username: string
 
-    readonly roles: UserRole[]
+    roles: UserRole[]
 
     constructor(username: string, roles: UserRole[]) {
         this.username = username;
@@ -24,4 +24,13 @@ export class UserStore {
         makeAutoObservable(this)
     }
 
+    hasRole(role: UserRole) {
+        for (let i = 0; i < this.roles.length; i++) {
+            if (this.roles[i] === role) {
+                return true;
+            }
+        }
+        return false;
+
+    }
 }

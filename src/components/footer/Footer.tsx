@@ -36,10 +36,13 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/*<div className={'footerContentItemLine'}>*/}
-                    <div className={'footerFaceBookIcon'}/>
-                    <div className={'footerTwitterBookIcon'}/>
-                    {/*</div>*/}
+                    <div className={'footerContentItemLine'}>
+                        <div className={'footerTwitterBookIcon'}/>
+                    </div>
+
+                    <div className={'footerContentItemLine'}>
+                        <div className={'footerFaceBookIcon'}/>
+                    </div>
                 </div>
 
                 <div className={'footerContentItem'}>

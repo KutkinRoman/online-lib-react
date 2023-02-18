@@ -1,4 +1,4 @@
-import {InterfaceAccessTokenDecode, UserStore} from "./UserStore";
+import {InterfaceAccessTokenDecode, UserRole, UserStore} from "./UserStore";
 import {makeAutoObservable} from "mobx";
 import {AuthService} from "../services/AuthService";
 import {InterfaceAuthResponse} from "../entities/AuthResponse";
@@ -94,4 +94,7 @@ export class AuthStore {
     }
 
 
+    isAdmin() {
+        return this.user && this.user.hasRole(UserRole.ROLE_ADMIN)
+    }
 }
