@@ -127,6 +127,7 @@
 }
 
 .formButtonDisable {
+    margin-top: 16px;
     border-radius: 10px;
     height: 45px;
     width: 100%;

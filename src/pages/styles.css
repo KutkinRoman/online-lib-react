@@ -115,7 +115,7 @@
     flex-direction: row;
 }
 
-.bookEditPageBackground {
+.commonPageBackground {
     background: url("../assect/images/login-page-background.png") no-repeat center right;
     background-size: cover;
     display: flex;

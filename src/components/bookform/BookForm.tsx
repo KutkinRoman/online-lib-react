@@ -106,6 +106,7 @@ const BookForm = ({bookId}: BookFormProps) => {
                 />
             ))}
             <Button
+                type={'button'}
                 children={'Добавить категорию'}
                 buttonType={'secondary'}
                 onClick={() => categoryIds.append(null)}
@@ -121,6 +122,7 @@ const BookForm = ({bookId}: BookFormProps) => {
                 />
             ))}
             <Button
+                type={'button'}
                 children={'Добавить автора'}
                 buttonType={'secondary'}
                 onClick={() => authorIds.append(null)}

@@ -20,15 +20,10 @@ AUTH_API.interceptors.response.use((config) => {
     const originalRequest = error.config
     if (error.response.status === 401 && !originalRequest.isRetry) {
         originalRequest.isRetry = true
-        try {
-            await authStore.refresh()
-            return await AUTH_API.request(originalRequest)
-        } catch (e) {
-            authStore.clear()
-            throw error
-        }
-    } else {
-        authStore.clear()
-        throw error
+        await authStore.refresh()
+        return await AUTH_API.request(originalRequest)
+    } else if (originalRequest.isRetry){
+        await authStore.clear()
     }
+    throw error
 })
