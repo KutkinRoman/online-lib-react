@@ -116,11 +116,12 @@
 }
 
 .commonPageBackground {
-    background: url("../assect/images/login-page-background.png") no-repeat center right;
-    background-size: cover;
+    /*background: url("../assect/images/login-page-background.png") no-repeat center right;*/
+    /*background-size: cover;*/
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #F0F0F0;
 }
 
 
