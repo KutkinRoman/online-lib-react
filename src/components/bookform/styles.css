@@ -3,10 +3,53 @@
     padding: 50px;
 }
 
-.bookCoverFormWrapper {
-
+.bookFilesContainer {
+    display: flex;
+    flex-direction: row;
 }
 
-.bookCoverInputContainer{
+.bookCoverFormWrapper {
+    flex: 1;
+}
+.bookEBookFormWrapper{
+    flex: 1;
+    padding-left: 20px;
+}
+
+.bookCoverInputContainer {
     height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookEBookInputContainer {
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookCoverInputContainer:hover {
+    background: rgba(15, 118, 176, 0.5);
+}
+
+.bookEBookInputContainer:hover{
+    background: rgba(15, 118, 176, 0.5);
+}
+
+.bookCoverInputContainerDrag{
+    background: rgba(15, 118, 176, 0.5);
+}
+
+.bookCoverImage {
+    height: 450px;
+    border-radius: 15px;
+}
+
+.bookEBookPath{
+   text-align: center;
+    padding: 20px;
 }
