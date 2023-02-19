@@ -31,4 +31,17 @@ export class BookService {
     static async uploadEBook(bookId: string, formData: any) {
         return await AUTH_API.post<InterfaceFile>(`/books/ebook/${bookId}`, formData)
     }
+
+    static async isFavourite(bookId: string) {
+        return await AUTH_API.get<boolean>(`/books/favourite/${bookId}`)
+    }
+
+    static async addFavourite(bookId: string) {
+        return await AUTH_API.post<boolean>(`/books/favourite/${bookId}`)
+    }
+
+    static async removeFavourite(bookId: string) {
+        return await AUTH_API.delete<boolean>(`/books/favourite/${bookId}`)
+    }
+
 }

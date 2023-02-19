@@ -97,4 +97,8 @@ export class AuthStore {
     isAdmin() {
         return this.user && this.user.hasRole(UserRole.ROLE_ADMIN)
     }
+
+    isUser() {
+        return this.user && this.user.hasRole(UserRole.ROLE_USER)
+    }
 }
