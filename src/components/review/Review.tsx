@@ -20,8 +20,9 @@ const Review = () => {
                 <div className={'reviewContentItems reviewItem '}>
                     <div className={'itWasAllADream'}>{justinReview.title} </div>
                     <div className={'justin'}>Джастин Тинсли {/*{justinReview.authorOfReview}*/} </div>
+                    {/*<div className={'ratingIcon ratingIcon'}></div>*/}
                     <div className={'reviewItemText '}> {justinReview.description} </div>
-                    <div className={'borrowButton borrowText'}> Взаимствовать</div>
+                    {/*<div className={'borrowButton borrowText'}> Взаимствовать</div>*/}
                 </div>
             </div>
 
