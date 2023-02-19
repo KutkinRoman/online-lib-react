@@ -1,7 +1,6 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import './styles.css';
-import NotificationButton from "./NotificationButton";
 import ShoppingCartButton from "./ShoppingCartButton";
 import {observer} from "mobx-react-lite";
 import {useAppStore} from "../../context/useAppStore";
@@ -15,7 +14,7 @@ const NavUserMenu = () => {
             <div className={'navBarUserMenuButtonIcon navBarUserMenuButtonIconSearch'}/>
             {authStore.isAuth()
                 ? <React.Fragment>
-                    <NotificationButton/>
+                    {/*<NotificationButton/>*/}
                     <ShoppingCartButton/>
                     <div className={'navBarUserMenuButton'} children={'Выход'} onClick={() => authStore.logout()}/>
                 </React.Fragment>

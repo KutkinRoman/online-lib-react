@@ -5,6 +5,7 @@ import {BookStore} from "./BookStore";
 import {AuthorStore} from "./AuthorStore";
 import {OrderFeedbacksStore} from "./OrderFeedbacksStore";
 import {BlogsStore} from "./BlogsStore";
+import {ShoppingCartStore} from "./ShoppingCartStore";
 
 export class AppStore {
 
@@ -20,8 +21,15 @@ export class AppStore {
 
     blogsStore = new BlogsStore()
 
+    shoppingCartStore: ShoppingCartStore | null = null
+
     constructor(authStore: AuthStore) {
         this.authStore = authStore;
         makeAutoObservable(this)
     }
+
+    setShoppingCartStore(shoppingCartStore: ShoppingCartStore) {
+        this.shoppingCartStore = shoppingCartStore;
+    }
+
 }
