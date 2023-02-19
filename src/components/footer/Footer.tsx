@@ -23,9 +23,9 @@ const Footer = () => {
                     <div className={'footerContentItemLine'}>
                         <div className={'footerPhoneIcon'}/>
                         <div id={'footerAddressText'} className={'footerAddressText'}>
-                            +7 (777)-777-77-77
+                            +7 (707)-347-58-34
                             <br/>
-                            +7 (702)-777-77-77
+                            +7 (747)-391-24-18
                         </div>
                     </div>
 
@@ -37,12 +37,10 @@ const Footer = () => {
                     </div>
 
                     <div className={'footerContentItemLine'}>
-                        <div className={'footerTwitterBookIcon'}/>
-                    </div>
-
-                    <div className={'footerContentItemLine'}>
                         <div className={'footerFaceBookIcon'}/>
                     </div>
+
+
                 </div>
 
                 <div className={'footerContentItem'}>
@@ -62,6 +60,9 @@ const Footer = () => {
                     {/**/}
                 </div>
             </div>
+            {/*<div className={'footerContentItemLine '}>*/}
+            <div className={'footerTwitterBookIcon'}></div>
+            {/*</div>*/}
             <div className={'footerCopyright'}>
                 &copy; 2023 Copyright LearnHub Library
             </div>

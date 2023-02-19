@@ -39,8 +39,8 @@
     align-items: center;
     padding: 20px;
     gap: 10px;
-    margin-left: -150px;
-    /*margin-top: -30%;*/
+    margin-left: -200px;
+    margin-top: 0;
     width: 126px;
     height: 40px;
 
@@ -56,7 +56,8 @@
 }
 
 .justin {
-    width: 120px;
+    margin-left: -200px;
+    width: 150px;
     height: 20px;
 
     font-family: 'Open Sans', serif;
@@ -64,15 +65,11 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 164%;
-    /* identical to box height, or 20px */
 
     text-align: justify;
     letter-spacing: 0.155em;
 
     color: #FFFFFF;
-
-
-    /* Inside auto layout */
 
     flex: none;
     order: 1;
@@ -90,10 +87,6 @@
     line-height: 20px;
 
     color: #FFFFFF;
-
-
-    /* Inside auto layout */
-
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -112,7 +105,7 @@
     text-align: justify;
     letter-spacing: 0.155em;
     margin-left: -200px;
-    margin-top: 35%;
+    margin-top: 20%;
 }
 
 .reviewBookCover {
@@ -123,6 +116,17 @@
     top: 0;
 }
 
+.ratingIcon {
+    background: url("../../assect/ratingIcons/star-7207.png") no-repeat center center;
+    width: 20px;
+    height: 19px;
+
+    background: #FFDD2D;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
 
 .itWasAllADream {
     width: 737px;
