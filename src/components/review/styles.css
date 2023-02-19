@@ -5,13 +5,13 @@
 
 .reviewTop {
     width: 1512px;
-    height: 926px;
+    height: 300px;
 }
 
 .reviewContent {
     display: flex;
     flex-direction: row;
-    padding: 926px 0 100px 0;
+    padding: 400px 0 100px 0;
 }
 
 .reviewContentItems {
@@ -30,6 +30,73 @@
     margin-top: -30%;
     left: 553px;
     top: 0;
+}
+
+.borrowButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    margin-left: -150px;
+    /*margin-top: -30%;*/
+    width: 126px;
+    height: 40px;
+
+    background: #0F76B0;
+    border-radius: 25px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+.justin {
+    width: 120px;
+    height: 20px;
+
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 164%;
+    /* identical to box height, or 20px */
+
+    text-align: justify;
+    letter-spacing: 0.155em;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.borrowText {
+    width: 117px;
+    height: 20px;
+
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .reviewItemText {
@@ -115,3 +182,4 @@
 
     background: #0F76B0;
 }
+

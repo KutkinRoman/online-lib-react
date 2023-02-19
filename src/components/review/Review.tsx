@@ -13,16 +13,15 @@ const justinReview: IReviewEntity = {
 const Review = () => {
     return (
         <div className={'reviewWrapper'}>
-            <div className={'reviewTop container  '}>
+            <div className={'reviewTop container'}>
                 <div className={'blueItem'}></div>
                 <div className={'reviewBookCover'}></div>
 
                 <div className={'reviewContentItems reviewItem '}>
-
                     <div className={'itWasAllADream'}>{justinReview.title} </div>
-                    <div className={'authorOfReviewItem'}> {justinReview.authorOfReview} </div>
+                    <div className={'justin'}>Джастин Тинсли {/*{justinReview.authorOfReview}*/} </div>
                     <div className={'reviewItemText '}> {justinReview.description} </div>
-
+                    <div className={'borrowButton borrowText'}> Взаимствовать</div>
                 </div>
             </div>
 
