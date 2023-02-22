@@ -1,6 +1,6 @@
 export interface IReviewEntity {
     title: string
     authorOfReview: string
-    rating: string
+    rating: number
     description: string
 }

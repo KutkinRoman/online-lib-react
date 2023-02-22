@@ -1,309 +1,170 @@
 
 .reviewWrapper {
     background: #FFFFFF;
+    padding-top: 160px;
+    padding-bottom: 160px;
+    position: relative;
 }
 
-.reviewTop {
-    width: 1512px;
-    height: 300px;
+.reviewContainer {
+    height: 270px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reviewBackgroundImageContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.reviewBackgroundImageBlue {
+    background: #0F76B0;
+    flex: 2;
+}
+
+.reviewBackgroundImageViolet {
+    background: #C827C1;
+    flex: 2;
+}
+
+.reviewBackgroundImageWhite {
+    background: white;
+    flex: 2;
+}
+
+.reviewBackgroundImageRed {
+    background: #E30D0D;
+    flex: 2;
 }
 
 .reviewContent {
-    display: flex;
-    flex-direction: row;
-    padding: 400px 0 100px 0;
-}
-
-.reviewContentItems {
-    flex: 1;
-}
-
-.reviewItem {
-    min-height: 1px;
-    width: 961px;
-    height: 300px;
-    padding-right: 300px;
-    padding-left: 300px;
-    padding-top: 300px;
+    flex: 2;
     background: #008705;
-    margin-left: 400px;
-    margin-top: -30%;
-    left: 553px;
-    top: 0;
+    padding: 5px;
+    position: relative;
 }
 
-.borrowButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    gap: 10px;
-    margin-left: -200px;
-    width: 126px;
-    height: 40px;
-
-    background: #0F76B0;
-    border-radius: 25px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
-    margin-top: -15%;
+.reviewBackgroundImage {
+    background: url("../../assect/ourServices/itWasAllADream.png") no-repeat center center;
+    height: 500px;
+    min-width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.downloadButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    gap: 10px;
-
-    width: 126px;
-    height: 40px;
-
-    background: #76610d;
-    border-radius: 25px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
-    margin-top: -10%;
-    margin-bottom: 500px;
-    margin-left: -200px;
-    padding-top: -30px;
-}
-
-.readButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    gap: 10px;
-    margin-left: 100px;
-    margin-right: 500px;
-    width: 126px;
-    height: 40px;
-
-    background: #b0a30f;
-    border-radius: 25px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
-    margin-top: -15%;
-    padding-top: -50px;
-}
-
-.buyButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    gap: 10px;
-    margin-left: 300px;
-    width: 126px;
-    height: 40px;
-
-    background: #0F76B0;
-    border-radius: 25px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
-    margin-top: -15%;
-}
-
-.justin {
-    margin-left: -200px;
-    width: 150px;
-    height: 20px;
-
+.reviewContentHeader {
     font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 164%;
+    text-align: justify;
+    letter-spacing: 0.155em;
+    color: #FFFFFF;
+}
+
+.reviewContentAuthor {
+    padding-top: 12px;
+    font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 164%;
-
     text-align: justify;
     letter-spacing: 0.155em;
-
     color: #FFFFFF;
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
-.borrowText {
-    width: 117px;
-    height: 20px;
-
-    font-family: 'Open Sans', serif;
+.reviewContentDescriptionHeader {
+    padding-top: 12px;
+    font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 164%;
+    text-align: justify;
+    letter-spacing: 0.155em;
     color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
-.reviewItemText {
-    vertical-align: 1000px;
-    width: 843px;
-    height: 80px;
-
-    font-family: 'Open Sans', serif;
+.reviewContentDescription {
+    padding-top: 5px;
+    font-family: 'Open Sans';
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
     line-height: 164%;
     text-align: justify;
     letter-spacing: 0.155em;
-    margin-left: -200px;
-    margin-top: -5%;
-    margin-bottom: 20%;
-}
-
-.reviewBookCover {
-    background: url("../../assect/ourServices/itWasAllADream.png") no-repeat center center;
-    width: 384px;
-    height: 500px;
-    left: 101px;
-    top: 0;
-}
-
-.ratingIcon {
-    background: url("../../assect/ratingIcons/star-7207.png") no-repeat center center;
-    width: 20px;
-    height: 19px;
-
-    background: #FFDD2D;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.itWasAllADream {
-    width: 737px;
-    height: 33px;
-
-    font-family: 'Open Sans', serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 164%;
-    /* identical to box height, or 33px */
-
-    text-align: justify;
-    letter-spacing: 0.155em;
-
-    color: #FFFFFF;
-
-    margin-left: -200px;
-    margin-top: -80%;
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-
-.authorOfReviewItem {
-    width: 120px;
-    height: 20px;
-
-    font-family: 'Open Sans', serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 164%;
-    /* identical to box height, or 20px */
-
-    text-align: justify;
-    letter-spacing: 0.155em;
-
-    color: #FFFFFF;
-    margin-left: -200px;
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.blueItem {
-    width: 19px;
-    height: 83px;
-    margin-left: -112px;
-    /*margin-bottom: -112px;*/
-    margin-top: 20px;
-
-    background: #0F76B0;
 }
 
 .reviewRatingContainer {
+    padding-top: 12px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 2px;
-}
-
-.RatingCount {
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 18px;
-    color: #0F0F0F;
-    margin-left: -205px;
 }
 
 .numberOfRatings {
-    width: 86px;
-    height: 18px;
-
-    font-family: 'Open Sans', serif;
+    padding-left: 10px;
+    font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
     line-height: 18px;
     color: #FFFFFF;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin-bottom: 40px;
-    margin-left: -60px;
-    margin-top: -20px;
-    padding: -20px 5px 10px 0;
-    padding-top: -60px;
-    vertical-align: 1095px;
 }
 
-.descriptionWord {
-    width: 96px;
-    height: 20px;
+.reviewButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    height: 40px;
+    bottom: -50px;
+    right: 0;
+    left: 0;
+}
 
-    font-family: 'Open Sans', serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 164%;
-    text-align: justify;
-    letter-spacing: 0.155em;
+.reviewButton {
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin-left: -200px;
-    /*margin-top: 50px;*/
-    margin-bottom: 40px;
-    margin-top: -30px;
+    width: 150px;
+}
+
+.reviewBuyButton {
+    background: #0F76B0;
+}
+
+.reviewReadButton {
+    background: #b0a30f;
+}
+
+.reviewDownloadButton {
+    background: #0d765e;
+}
+
+.reviewShowMoreButton {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #0F76B0;
+    border-bottom: 1px solid transparent;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.reviewShowMoreButton:hover{
+    cursor: pointer;
 }
