@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import {IReviewEntity} from "../../data/entities/IReviewEntity";
+import {Rating} from "@mui/material";
 
 
 const justinReview: IReviewEntity = {
@@ -20,9 +21,22 @@ const Review = () => {
                 <div className={'reviewContentItems reviewItem '}>
                     <div className={'itWasAllADream'}>{justinReview.title} </div>
                     <div className={'justin'}>Джастин Тинсли {/*{justinReview.authorOfReview}*/} </div>
+                    <div className={'reviewRatingContainer RatingCount'}>
+                        <Rating name="read-only" value={4} readOnly/>
+                    </div>
+                    <div className={'numberOfRatings'}>116 оценок</div>
+                    <div className={'descriptionWord'}>Описание</div>
                     {/*<div className={'ratingIcon ratingIcon'}></div>*/}
                     <div className={'reviewItemText '}> {justinReview.description} </div>
-                    {/*<div className={'borrowButton borrowText'}> Взаимствовать</div>*/}
+                    <div className={'buyButton borrowText'}> Купить </div>
+                    <div className={'readButton borrowText'}> Читать </div>
+                    <div className={'downloadButton borrowText'}> Скачать </div>
+                    <div className={'showMoreButton'}  >
+                        Посмотреть больше &#10149;
+                    </div>
+                    {/*<div className={'showMoreButtonContainer'}>*/}
+
+                    {/*</div>*/}
                 </div>
             </div>
 

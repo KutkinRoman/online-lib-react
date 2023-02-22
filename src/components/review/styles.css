@@ -21,7 +21,7 @@
 .reviewItem {
     min-height: 1px;
     width: 961px;
-    height: 268px;
+    height: 300px;
     padding-right: 300px;
     padding-left: 300px;
     padding-top: 300px;
@@ -40,19 +40,81 @@
     padding: 20px;
     gap: 10px;
     margin-left: -200px;
-    margin-top: 0;
     width: 126px;
     height: 40px;
 
     background: #0F76B0;
     border-radius: 25px;
-
-    /* Inside auto layout */
-
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 1;
+    margin-top: -15%;
+}
+
+.downloadButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+
+    width: 126px;
+    height: 40px;
+
+    background: #76610d;
+    border-radius: 25px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+    margin-top: -10%;
+    margin-bottom: 500px;
+    margin-left: -200px;
+    padding-top: -30px;
+}
+
+.readButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    margin-left: 100px;
+    margin-right: 500px;
+    width: 126px;
+    height: 40px;
+
+    background: #b0a30f;
+    border-radius: 25px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+    margin-top: -15%;
+    padding-top: -50px;
+}
+
+.buyButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    margin-left: 300px;
+    width: 126px;
+    height: 40px;
+
+    background: #0F76B0;
+    border-radius: 25px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+    margin-top: -15%;
 }
 
 .justin {
@@ -105,7 +167,8 @@
     text-align: justify;
     letter-spacing: 0.155em;
     margin-left: -200px;
-    margin-top: 20%;
+    margin-top: -5%;
+    margin-bottom: 20%;
 }
 
 .reviewBookCover {
@@ -187,3 +250,60 @@
     background: #0F76B0;
 }
 
+.reviewRatingContainer {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.RatingCount {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #0F0F0F;
+    margin-left: -205px;
+}
+
+.numberOfRatings {
+    width: 86px;
+    height: 18px;
+
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #FFFFFF;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-bottom: 40px;
+    margin-left: -60px;
+    margin-top: -20px;
+    padding: -20px 5px 10px 0;
+    padding-top: -60px;
+    vertical-align: 1095px;
+}
+
+.descriptionWord {
+    width: 96px;
+    height: 20px;
+
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 164%;
+    text-align: justify;
+    letter-spacing: 0.155em;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: -200px;
+    /*margin-top: 50px;*/
+    margin-bottom: 40px;
+    margin-top: -30px;
+}
