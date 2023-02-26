@@ -11,6 +11,7 @@ import TextArea from "../form/TextArea";
 import {InterfaceBookForm} from "../../data/entities/BookForm";
 import BookCoverForm from "./BookCoverForm";
 import EBookForm from "./EBookForm";
+import EBookReader from "./EBookReader";
 
 /**
  * React hook form field array example: https://stackblitz.com/edit/react-rrz1sz?file=src%2Fcomponents%2FSocialContainer.jsx
@@ -149,6 +150,7 @@ const BookForm = ({bookId}: BookFormProps) => {
                     <EBookForm bookId={getValues('id')}/>
                 </div>
             }
+            <EBookReader/>
         </div>
     );
 };
