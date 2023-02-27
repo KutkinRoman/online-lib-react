@@ -13,7 +13,7 @@ const ShoppingCartButton = () => {
     return (
         <div className={'navBarUserMenuButtonIcon navBarUserMenuButtonIconShoppingCard'}
              onClick={() => navigate('shopping-cart')}>
-            <div className={'navBarUserMenuShoppingCardMarker navBarUserMenuShoppingCardMarkerShow'} children={35}/>
+            <div className={'navBarUserMenuShoppingCardMarker navBarUserMenuShoppingCardMarkerShow'} children={0}/>
         </div>
     );
 };
