@@ -125,3 +125,16 @@
 }
 
 
+.adminPanelWrapper{
+    display: flex;
+    flex-direction: column;
+    background: #F0F0F0;
+}
+
+.adminPanelContainer{
+    flex: 1;
+    background: #F0F0F0;
+}
+
+
+

@@ -17,6 +17,9 @@ const NavUserMenu = () => {
                     {/*<NotificationButton/>*/}
                     <ShoppingCartButton/>
                     <div className={'navBarUserMenuButton'} children={'Выход'} onClick={() => authStore.logout()}/>
+                    {authStore.isAdmin() &&
+                        <div className={'navBarUserMenuButton'} children={'Админ'} onClick={() => navigate('/admin-panel')}/>
+                    }
                 </React.Fragment>
                 :
                 <div className={'navBarUserMenuButton'} children={'Авторизация'} onClick={() => navigate('/login')}/>
