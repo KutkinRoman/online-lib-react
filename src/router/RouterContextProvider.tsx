@@ -11,29 +11,37 @@ import ShoppingCartPage from "../pages/ShoppingCartPage";
 import {observer} from "mobx-react-lite";
 import AdminPanelPage from "../pages/admin";
 import NotFoundPage from "../pages/NotFoundPage";
+import {Alert, Stack} from "@mui/material";
 
 const RouterContextProvider = () => {
     const authStore = useAppStore().authStore
 
     return (
-        <Routes>
-            <Route path={'/'} element={<LandingPage/>}/>
-            <Route path={'/login'} element={<LoginPage/>}/>
-            <Route path={'/sign-up'} element={<SignUpPage/>}/>
-            <Route path={'/landing-page'} element={<LandingPage/>}/>
-            <Route path={'/user-verification'}
-                   element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}/>
-            <Route path={'/books'} element={<BooksPage/>}/>
-            <Route path={'/shopping-cart'}
-                   element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
-            <Route path={'/admin-panel'}
-                   element={authStore.isAuth() ? <AdminPanelPage/> : <LoginPage/>}/>
-            <Route path={'/book-edit'}>
-                <Route path={':bookId'}
-                       element={authStore.isAuth() ? <BookEditPage/> : <LoginPage/>}/>
-            </Route>
-            <Route path={'/*'} element={<NotFoundPage/>}/>
-        </Routes>
+        <React.Fragment>
+            {authStore.isNotVerification() &&
+                <Alert severity="warning">
+                    Необходимо подтвердить адрес электроной почты!
+                </Alert>
+            }
+            <Routes>
+                <Route path={'/'} element={<LandingPage/>}/>
+                <Route path={'/login'} element={<LoginPage/>}/>
+                <Route path={'/sign-up'} element={<SignUpPage/>}/>
+                <Route path={'/landing-page'} element={<LandingPage/>}/>
+                <Route path={'/user-verification'}
+                       element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}/>
+                <Route path={'/books'} element={<BooksPage/>}/>
+                <Route path={'/shopping-cart'}
+                       element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
+                <Route path={'/admin-panel'}
+                       element={authStore.isAuth() ? <AdminPanelPage/> : <LoginPage/>}/>
+                <Route path={'/book-edit'}>
+                    <Route path={':bookId'}
+                           element={authStore.isAuth() ? <BookEditPage/> : <LoginPage/>}/>
+                </Route>
+                <Route path={'/*'} element={<NotFoundPage/>}/>
+            </Routes>
+        </React.Fragment>
     );
 };
 
