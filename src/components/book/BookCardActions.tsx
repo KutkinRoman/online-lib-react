@@ -12,6 +12,7 @@ import {useNavigate} from "react-router-dom";
 import {BookService} from "../../data/services/BookService";
 import {BookStatusEnum} from "../../data/entities/BookStatusEnum";
 import {ShoppingCartService} from "../../data/services/ShoppingCartService";
+import {Tooltip} from "@mui/material";
 
 interface BookCardActions {
     book: InterfaceBook;
@@ -71,29 +72,46 @@ const BookCardActions = ({book}: BookCardActions) => {
                     {(bookStatus !== null) &&
                         <div className={'bookCardActionsItem'}>
                             {bookStatus === BookStatusEnum.NOT_IN_CART &&
-                                <AddShoppingCartIcon onClick={addBook}/>
+                                <Tooltip title={'Добавить в корзину'}>
+                                    <AddShoppingCartIcon onClick={addBook}/>
+                                </Tooltip>
                             }
                             {bookStatus === BookStatusEnum.IN_CART &&
-                                <ShoppingCartIcon onClick={removeBook}/>
-                            }
-                            {bookStatus === BookStatusEnum.PURCHASED &&
-                                <DownloadIcon onClick={handleDownloadEBook}/>
+                                <Tooltip title={'Удалить из корзины'}>
+                                    <ShoppingCartIcon onClick={removeBook}/>
+                                </Tooltip>
                             }
                         </div>
                     }
                     {(isFavourite !== null) &&
                         <div className={'bookCardActionsItem'}>
                             {isFavourite
-                                ? <FavoriteIcon onClick={removeFavourite}/>
-                                : <FavoriteBorderIcon onClick={addFavourite}/>}
+                                ?
+                                <Tooltip title={'Удалить из избранного'}>
+                                    <FavoriteIcon onClick={removeFavourite}/>
+                                </Tooltip>
+                                :
+                                <Tooltip title={'Добавить в избранное'}>
+                                    <FavoriteBorderIcon onClick={addFavourite}/>
+                                </Tooltip>
+                            }
                         </div>
                     }
                 </React.Fragment>
             }
             {authStore.isAdmin() &&
-                <div className={'bookCardActionsItem'}>
-                    <EditIcon onClick={handleEditBook}/>
-                </div>
+               <React.Fragment>
+                   <div className={'bookCardActionsItem'}>
+                       <Tooltip title={'Скачать EBook'}>
+                           <DownloadIcon onClick={handleDownloadEBook}/>
+                       </Tooltip>
+                   </div>
+                   <div className={'bookCardActionsItem'}>
+                       <Tooltip title={'Редактировать'}>
+                           <EditIcon onClick={handleEditBook}/>
+                       </Tooltip>
+                   </div>
+               </React.Fragment>
             }
         </div>
     );

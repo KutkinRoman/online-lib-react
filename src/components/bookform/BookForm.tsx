@@ -50,7 +50,7 @@ const BookForm = ({bookId}: BookFormProps) => {
     const onSubmit = async (data: any) => {
         const response = await BookService.saveForm(data)
         updateForm(response.data)
-        navigate(`/book-edit/${response.data}`)
+        navigate(`/book-edit/${response.data.id}`)
     }
 
     const updateForm = (data: InterfaceBookForm) => {
