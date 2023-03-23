@@ -6,7 +6,7 @@ export interface InterfaceFile {
 
     updatedTs: string;
 
-    path: string;
+    fileName: string;
 
     link: string;
 

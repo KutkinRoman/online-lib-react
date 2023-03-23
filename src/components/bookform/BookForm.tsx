@@ -150,7 +150,6 @@ const BookForm = ({bookId}: BookFormProps) => {
                     <EBookForm bookId={getValues('id')}/>
                 </div>
             }
-            <EBookReader/>
         </div>
     );
 };

@@ -3,7 +3,6 @@ import {InterfaceFile} from "../../data/entities/File";
 import {BookService} from "../../data/services/BookService";
 import {useDropzone} from "react-dropzone";
 import Button from "../form/Button";
-import EBookReader from "./EBookReader";
 
 interface EBookFormFormProps {
     bookId: string
@@ -44,7 +43,7 @@ const EBookForm = ({bookId}: EBookFormFormProps) => {
                 <div className={containerStyle} {...getRootProps()}>
                     <input {...getInputProps()} />
                     {eBook &&
-                        <div className={'formLabel bookEBookPath'}>{eBook.path}</div>
+                        <div className={'formLabel bookEBookPath'}>{eBook.fileName}</div>
                     }
                     {isDragActive ?
                         <p className={'formLabel'}>Заргузить файл ...</p> :

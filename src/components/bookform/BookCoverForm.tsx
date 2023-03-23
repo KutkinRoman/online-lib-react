@@ -42,7 +42,7 @@ const BookCoverForm = ({bookId}: BookCoverFormProps) => {
             <div className={containerStyle} {...getRootProps()}>
                 <input {...getInputProps()} />
                 {cover &&
-                    <img className={'bookCoverImage'} src={cover.link} alt={cover.path} />
+                    <img className={'bookCoverImage'} src={cover.link} alt={cover.fileName} />
                 }
                 {isDragActive ?
                     <p className={'formLabel'}>Заргузить файл ...</p> :
