@@ -13,7 +13,7 @@ const CreateAccountForm = () => {
     const onSubmit = async (data: any) => {
         try {
             await appStore.authStore.registration(data)
-            // navigate('/')
+            navigate('/')
         } catch (e) {
             console.log(e)
         }
@@ -34,10 +34,31 @@ const CreateAccountForm = () => {
         <form className={'accountFormContainer'} onSubmit={handleSubmit(onSubmit)}>
             <FormHeader title={'Create an Account'} description={'Please fill in your correct information'}/>
             <div className={'accountFormBody'}>
-                <TextFiled label={'First Name'} placeholder={'Enter your first name'} register={firstName}/>
-                <TextFiled label={'Last Name'} placeholder={'Enter your last name'} register={lastName}/>
-                <TextFiled label={'E-mail'} placeholder={'Enter a valid email address'} register={username}/>
-                <TextFiled type={'password'} label={'Password'} placeholder={'Enter a 6 digit password '} register={password}/>
+                <TextFiled
+                    label={'First Name'}
+                    placeholder={'Enter your first name'}
+                    register={firstName}
+                    errors={errors}
+                />
+                <TextFiled
+                    label={'Last Name'}
+                    placeholder={'Enter your last name'}
+                    register={lastName}
+                    errors={errors}
+                />
+                <TextFiled
+                    label={'E-mail'}
+                    placeholder={'Enter a valid email address'}
+                    register={username}
+                    errors={errors}
+                />
+                <TextFiled
+                    type={'password'}
+                    label={'Password'}
+                    placeholder={'Enter a 6 digit password '}
+                    register={password}
+                    errors={errors}
+                />
                 <Button
                     type={'submit'}
                     className={'accountSubmitButton'}

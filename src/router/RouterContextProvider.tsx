@@ -19,7 +19,7 @@ const RouterContextProvider = () => {
     return (
         <React.Fragment>
             {authStore.isNotVerification() &&
-                <Alert severity="warning">
+                <Alert severity="warning" variant={'filled'}>
                     Необходимо подтвердить адрес электроной почты!
                 </Alert>
             }
