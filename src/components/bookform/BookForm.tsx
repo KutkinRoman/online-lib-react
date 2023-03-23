@@ -12,6 +12,7 @@ import {InterfaceBookForm} from "../../data/entities/BookForm";
 import BookCoverForm from "./BookCoverForm";
 import EBookForm from "./EBookForm";
 import {useNavigate} from "react-router-dom";
+import {useAlertSubmit} from "../../hooks/useAlert";
 
 /**
  * React hook form field array example: https://stackblitz.com/edit/react-rrz1sz?file=src%2Fcomponents%2FSocialContainer.jsx
@@ -34,10 +35,13 @@ const BookForm = ({bookId}: BookFormProps) => {
         setValue,
         getValues,
         formState: {
+            isSubmitSuccessful,
             isSubmitting,
             errors,
         }
     } = useForm({});
+
+    useAlertSubmit(isSubmitSuccessful)
 
     const id = register('id')
     const name = register('name', {required: true})

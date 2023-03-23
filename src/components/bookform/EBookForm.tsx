@@ -3,7 +3,8 @@ import {InterfaceFile} from "../../data/entities/File";
 import {BookService} from "../../data/services/BookService";
 import {useDropzone} from "react-dropzone";
 import Button from "../form/Button";
-import {Alert, CircularProgress} from "@mui/material";
+import {CircularProgress} from "@mui/material";
+import {useAlert} from "../../hooks/useAlert";
 
 interface EBookFormFormProps {
     bookId: string
@@ -12,23 +13,26 @@ interface EBookFormFormProps {
 const EBookForm = ({bookId}: EBookFormFormProps) => {
     const [isLoadin, setIsLoading] = useState(false)
     const [eBook, setEBook] = useState<InterfaceFile | null>(null)
+    const {successSaved, errorSaved, enqueueSnackbar} = useAlert();
 
     const onDrop = useCallback(async (acceptedFiles: any) => {
         if (acceptedFiles[0]) {
             try {
                 setIsLoading(true)
                 const file = acceptedFiles[0]
-                if (!file.name.endsWith('epub')){
-                    const message = 'File extension is not epub'
-                    alert(message)
-                    throw new Error(message)
+                if (!file.name.endsWith('epub')) {
+                    const message = 'File extension is not "*.epub"'
+                    enqueueSnackbar(message, {variant: "error"})
+                    return
                 }
                 const formData = new FormData()
                 formData.set('file', file)
                 const response = await BookService.uploadEBook(bookId, formData)
                 setEBook(response.data)
+                successSaved()
             } catch (e) {
                 console.log(e)
+                errorSaved()
             } finally {
                 setIsLoading(false)
             }
@@ -74,7 +78,7 @@ const EBookForm = ({bookId}: EBookFormFormProps) => {
                             }
                             {isDragActive ?
                                 <p className={'formLabel'}>Заргузить файл ...</p> :
-                                <p className={'formLabel'}>Перетащите файл или нажмите, чтобы выбрать файлы</p>
+                                <p className={'formLabel'}>Перетащите файл или нажмите, чтобы выбрать файлы "*.epub"</p>
                             }
                         </React.Fragment>
                     }
