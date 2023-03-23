@@ -11,7 +11,7 @@ import TextArea from "../form/TextArea";
 import {InterfaceBookForm} from "../../data/entities/BookForm";
 import BookCoverForm from "./BookCoverForm";
 import EBookForm from "./EBookForm";
-import EBookReader from "./EBookReader";
+import {useNavigate} from "react-router-dom";
 
 /**
  * React hook form field array example: https://stackblitz.com/edit/react-rrz1sz?file=src%2Fcomponents%2FSocialContainer.jsx
@@ -25,6 +25,7 @@ interface BookFormProps {
 const BookForm = ({bookId}: BookFormProps) => {
     const bookStore = useAppStore().bookStore
     const authorStore = useAppStore().authorStore
+    const navigate = useNavigate()
 
     const {
         register,
@@ -34,7 +35,7 @@ const BookForm = ({bookId}: BookFormProps) => {
         getValues,
         formState: {
             isSubmitting,
-            errors
+            errors,
         }
     } = useForm({});
 
@@ -49,6 +50,7 @@ const BookForm = ({bookId}: BookFormProps) => {
     const onSubmit = async (data: any) => {
         const response = await BookService.saveForm(data)
         updateForm(response.data)
+        navigate(`/book-edit/${response.data}`)
     }
 
     const updateForm = (data: InterfaceBookForm) => {
@@ -90,20 +92,23 @@ const BookForm = ({bookId}: BookFormProps) => {
                 <TextFiled
                     label={'Наименование книги'}
                     register={name}
+                    errors={errors}
                 />
                 <TextArea
                     label={'Описание книга'}
                     register={description}
                     rows={5}
+                    errors={errors}
                 />
                 {categoryIds.fields.map((field, index) => (
                     <Select
                         key={field.id}
-                        register={register(`categoryIds.${index}`)}
+                        register={register(`categoryIds.${index}`, {required: true})}
                         label={`Категория ${index + 1}`}
                         items={bookStore.categories}
                         getLabelItem={item => item.name}
                         getOptionValue={item => item.id}
+                        errors={errors}
                     />
                 ))}
                 <Button
@@ -115,11 +120,12 @@ const BookForm = ({bookId}: BookFormProps) => {
                 {authorIds.fields.map((field, index) => (
                     <Select
                         key={field.id}
-                        register={register(`authorIds.${index}`)}
+                        register={register(`authorIds.${index}`, {required: true})}
                         label={`Автор ${index + 1}`}
                         items={authorStore.authors}
                         getLabelItem={item => item.fullName}
                         getOptionValue={item => item.id}
+                        errors={errors}
                     />
                 ))}
                 <Button
@@ -132,11 +138,13 @@ const BookForm = ({bookId}: BookFormProps) => {
                     label={'Описание автора'}
                     register={authorDescription}
                     rows={5}
+                    errors={errors}
                 />
                 <TextFiled
                     label={'Цена'}
                     register={price}
                     type={'number'}
+                    errors={errors}
                 />
                 <Button
                     type={'submit'}

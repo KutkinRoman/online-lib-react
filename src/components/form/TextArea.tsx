@@ -1,10 +1,12 @@
 import React, {useMemo} from 'react';
+import {Alert} from "@mui/material";
 
 export interface TextFiledProps extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
     label?: string | undefined,
     register?: any;
     containerClassName?: string
     textareaClassname?: string
+    errors?: any;
 }
 
 
@@ -14,6 +16,7 @@ const TextArea = ({
                       containerClassName,
                       textareaClassname,
                       register,
+                      errors,
                       id,
                       ...props
                   }: TextFiledProps) => {
@@ -36,6 +39,13 @@ const TextArea = ({
                     {...props}
                 />
             </div>
+            {(register && register.name && errors && errors[register.name]) &&
+                <div className={'formInputAlert'}>
+                    <Alert severity="error">
+                        {errors[register.name].message ? errors[register.name].message : 'Error!'}
+                    </Alert>
+                </div>
+            }
         </div>
     );
 };

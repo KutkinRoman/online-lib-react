@@ -151,4 +151,10 @@
     color: #00334b;
 }
 
+.formInputAlert{
+    margin-top: 5px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 

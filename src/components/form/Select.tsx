@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import {TextFiledProps} from "./TextFiled";
+import {Alert} from "@mui/material";
 
 interface SelectProps<T> extends TextFiledProps {
     items: T[],
@@ -7,7 +8,7 @@ interface SelectProps<T> extends TextFiledProps {
     getOptionValue: (item: T) => string | ReadonlyArray<string> | number | undefined;
 }
 
-function Select<T>({label, className, register, id, items, getLabelItem, getOptionValue, ...props}: SelectProps<T>) {
+function Select<T>({label, className, register, id, items, errors, getLabelItem, getOptionValue, ...props}: SelectProps<T>) {
 
     const inputId = useMemo(() => {
         return (id) ? id : (register) ? register.name : 'input_' + Math.random()
@@ -43,6 +44,13 @@ function Select<T>({label, className, register, id, items, getLabelItem, getOpti
                     children={options}
                 />
             </div>
+            {(register && register.name && errors && errors[register.name]) &&
+                <div className={'formInputAlert'}>
+                    <Alert severity="error">
+                        {errors[register.name].message ? errors[register.name].message : 'Error!'}
+                    </Alert>
+                </div>
+            }
         </div>
     );
 };
