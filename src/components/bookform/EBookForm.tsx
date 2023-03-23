@@ -3,20 +3,35 @@ import {InterfaceFile} from "../../data/entities/File";
 import {BookService} from "../../data/services/BookService";
 import {useDropzone} from "react-dropzone";
 import Button from "../form/Button";
+import {Alert, CircularProgress} from "@mui/material";
 
 interface EBookFormFormProps {
     bookId: string
 }
 
 const EBookForm = ({bookId}: EBookFormFormProps) => {
+    const [isLoadin, setIsLoading] = useState(false)
     const [eBook, setEBook] = useState<InterfaceFile | null>(null)
 
     const onDrop = useCallback(async (acceptedFiles: any) => {
         if (acceptedFiles[0]) {
-            const formData = new FormData()
-            formData.set('file', acceptedFiles[0])
-            const response = await BookService.uploadEBook(bookId, formData)
-            setEBook(response.data)
+            try {
+                setIsLoading(true)
+                const file = acceptedFiles[0]
+                if (!file.name.endsWith('epub')){
+                    const message = 'File extension is not epub'
+                    alert(message)
+                    throw new Error(message)
+                }
+                const formData = new FormData()
+                formData.set('file', file)
+                const response = await BookService.uploadEBook(bookId, formData)
+                setEBook(response.data)
+            } catch (e) {
+                console.log(e)
+            } finally {
+                setIsLoading(false)
+            }
         }
     }, [])
 
@@ -24,8 +39,15 @@ const EBookForm = ({bookId}: EBookFormFormProps) => {
 
     useEffect(() => {
         const fetchCover = async () => {
-            const response = await BookService.getEBook(bookId)
-            setEBook(response.data)
+            try {
+                setIsLoading(true)
+                const response = await BookService.getEBook(bookId)
+                setEBook(response.data)
+            } catch (e) {
+                console.log(e)
+            } finally {
+                setIsLoading(false)
+            }
         }
         fetchCover()
     }, [bookId])
@@ -41,13 +63,20 @@ const EBookForm = ({bookId}: EBookFormFormProps) => {
             <div className={'formLabel'}>Файл книги</div>
             <div>
                 <div className={containerStyle} {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    {eBook &&
-                        <div className={'formLabel bookEBookPath'}>{eBook.fileName}</div>
-                    }
-                    {isDragActive ?
-                        <p className={'formLabel'}>Заргузить файл ...</p> :
-                        <p className={'formLabel'}>Перетащите файл или нажмите, чтобы выбрать файлы</p>
+                    {isLoadin
+                        ?
+                        <CircularProgress color={'primary'} size={25}/>
+                        :
+                        <React.Fragment>
+                            <input {...getInputProps()} />
+                            {eBook &&
+                                <div className={'formLabel bookEBookPath'}>{eBook.fileName}</div>
+                            }
+                            {isDragActive ?
+                                <p className={'formLabel'}>Заргузить файл ...</p> :
+                                <p className={'formLabel'}>Перетащите файл или нажмите, чтобы выбрать файлы</p>
+                            }
+                        </React.Fragment>
                     }
                 </div>
                 {eBook &&
