@@ -1,4 +1,4 @@
-import React, {UIEvent, useRef, useState} from 'react';
+import React, {UIEvent, useEffect, useRef, useState} from 'react';
 import './styles.css';
 import NavBar from "../components/navbar/NavBar";
 import LandingMain from "../components/landing/LandingMain";

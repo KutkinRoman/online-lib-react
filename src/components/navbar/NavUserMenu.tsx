@@ -9,6 +9,11 @@ const NavUserMenu = () => {
     const authStore = useAppStore().authStore
     const navigate = useNavigate();
 
+    const onLogoutHandler = () => {
+        authStore.logout();
+        navigate('/')
+    }
+
     return (
         <div className={'navBarUserMenuContainer'}>
             <div className={'navBarUserMenuButtonIcon navBarUserMenuButtonIconSearch'}/>
@@ -16,7 +21,7 @@ const NavUserMenu = () => {
                 ? <React.Fragment>
                     {/*<NotificationButton/>*/}
                     <ShoppingCartButton/>
-                    <div className={'navBarUserMenuButton'} children={'Выход'} onClick={() => authStore.logout()}/>
+                    <div className={'navBarUserMenuButton'} children={'Выход'} onClick={onLogoutHandler}/>
                     {authStore.isAdmin() &&
                         <div className={'navBarUserMenuButton'} children={'Админ'} onClick={() => navigate('/admin-panel')}/>
                     }

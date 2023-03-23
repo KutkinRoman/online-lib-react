@@ -48,13 +48,18 @@ export class AuthStore {
     }
 
     async refresh() {
-        const token = this.getRefreshToken();
-        if (!token) {
-            throw Error('Refresh Token not found')
-        }
-        const response = await AuthService.refresh(token)
-        this.updateLocalStorage(response.data)
-        this.initUser(response.data.accessToken)
+       try {
+           const token = this.getRefreshToken();
+           if (!token) {
+               return false
+           }
+           const response = await AuthService.refresh(token)
+           this.updateLocalStorage(response.data)
+           this.initUser(response.data.accessToken)
+           return true
+       } catch (e) {
+           return false
+       }
     }
 
     clear() {
@@ -68,10 +73,13 @@ export class AuthStore {
         localStorage.setItem(AuthStore.ACCESS_TOKEN_KEY, response.accessToken)
     }
 
-    checkTokenAndInitUser() {
-        const token = this.getAccessToken();
+    async checkTokenAndInitUser() {
+        const token = this.getRefreshToken();
         if (token) {
-            this.initUser(token)
+            const isRefresh = await this.refresh()
+            if (!isRefresh){
+                this.clear()
+            }
         }
     }
 
@@ -100,5 +108,9 @@ export class AuthStore {
 
     isUser() {
         return this.user && this.user.hasRole(UserRole.ROLE_USER)
+    }
+
+    isNotVerification() {
+        return this.user && this.user.hasRole(UserRole.ROLE_NOT_VERIFICATION)
     }
 }

@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import './styles.css';
 import {InterfaceBook} from "../../data/entities/Book";
 import {Grid, Rating} from "@mui/material";
@@ -17,7 +17,7 @@ const BookCard = ({book}: BookCardProps) => {
     return (
         <Grid item xs={12} sm={6} md={4} lg={4}>
             <div className={'bookCardContainer'}>
-                {true && <BookCardActions book={book}/>}
+                <BookCardActions book={book}/>
                 <div className={'bookCardImageContainer'}>
                     <img className={'bookCardImage'} src={book.coverLink} alt={book.name}/>
                 </div>

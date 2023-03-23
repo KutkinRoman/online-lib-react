@@ -21,17 +21,17 @@ const RouterContextProvider = () => {
             <Route path={'/login'} element={<LoginPage/>}/>
             <Route path={'/sign-up'} element={<SignUpPage/>}/>
             <Route path={'/landing-page'} element={<LandingPage/>}/>
-            <Route path={'/user-verification'} element={<UserVerificationPage/>}/>
+            <Route path={'/user-verification'}
+                   element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}/>
             <Route path={'/books'} element={<BooksPage/>}/>
-            <Route path={'/shopping-cart'} element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
-            {authStore.isAdmin() &&
-                <React.Fragment>
-                    <Route path={'/admin-panel'} element={<AdminPanelPage/>}/>
-                    <Route path={'book-edit'}>
-                        <Route path={':bookId'} element={<BookEditPage/>}/>
-                    </Route>
-                </React.Fragment>
-            }
+            <Route path={'/shopping-cart'}
+                   element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
+            <Route path={'/admin-panel'}
+                   element={authStore.isAuth() ? <AdminPanelPage/> : <LoginPage/>}/>
+            <Route path={'/book-edit'}>
+                <Route path={':bookId'}
+                       element={authStore.isAuth() ? <BookEditPage/> : <LoginPage/>}/>
+            </Route>
             <Route path={'/*'} element={<NotFoundPage/>}/>
         </Routes>
     );
