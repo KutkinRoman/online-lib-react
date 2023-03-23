@@ -33,6 +33,14 @@
     align-items: center;
 }
 
+.notFoundPage{
+    background: url("../assect/images/login-page-background.png") no-repeat center right;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .loginPageContainer {
     width: 680px;
     height: 100%;

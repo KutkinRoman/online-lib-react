@@ -9,6 +9,8 @@ import BookEditPage from "../pages/BookEditPage";
 import {useAppStore} from "../context/useAppStore";
 import ShoppingCartPage from "../pages/ShoppingCartPage";
 import {observer} from "mobx-react-lite";
+import AdminPanelPage from "../pages/admin";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const RouterContextProvider = () => {
     const authStore = useAppStore().authStore
@@ -24,12 +26,13 @@ const RouterContextProvider = () => {
             <Route path={'/shopping-cart'} element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
             {authStore.isAdmin() &&
                 <React.Fragment>
-                    {/*<Route path={'/admin-panel'} element={<AdminPanelPage/>}/>*/}
+                    <Route path={'/admin-panel'} element={<AdminPanelPage/>}/>
                     <Route path={'book-edit'}>
                         <Route path={':bookId'} element={<BookEditPage/>}/>
                     </Route>
                 </React.Fragment>
             }
+            <Route path={'/*'} element={<NotFoundPage/>}/>
         </Routes>
     );
 };
