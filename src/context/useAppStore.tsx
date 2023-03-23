@@ -16,9 +16,15 @@ export const AppStoreContextProvider = observer(({authStore, children}: AppStore
     const {enqueueSnackbar} = useAlert()
 
     useEffect(() => {
-        if (authStore.isNotVerification()){
-            enqueueSnackbar('Необходимо подтвердить адрес электроной почты', {variant: 'info'})
+        const showVerificationMessage = () => {
+            const message = 'Необходимо подтвердить адрес электроной почты'
+            enqueueSnackbar(message, {variant: 'warning'})
+            setTimeout(() => {
+                if (authStore.isNotVerification()) showVerificationMessage();
+            }, 10_000)
         }
+
+        if (authStore.isNotVerification()) showVerificationMessage();
     }, [authStore.isNotVerification()])
 
     return (

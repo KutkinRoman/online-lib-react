@@ -113,4 +113,8 @@ export class AuthStore {
     isNotVerification() {
         return this.user && this.user.hasRole(UserRole.ROLE_NOT_VERIFICATION)
     }
+
+    isVerification() {
+        return this.user && !this.user.hasRole(UserRole.ROLE_NOT_VERIFICATION)
+    }
 }
