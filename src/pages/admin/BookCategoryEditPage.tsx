@@ -16,7 +16,7 @@ const BookCategoryEditPage = () => {
         register,
         handleSubmit,
         setValue,
-
+        reset,
         formState: {
             isSubmitSuccessful,
             isSubmitting,
@@ -46,10 +46,12 @@ const BookCategoryEditPage = () => {
             if (categoryId !== 'new') {
                 const {data} = await BookCategoryService.getById(categoryId)
                 updateForm(data)
+            } else {
+                reset()
             }
         }
         iniForm()
-    }, [])
+    }, [categoryId])
 
     return (
         <AdminPanelPage>

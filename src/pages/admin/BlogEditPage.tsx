@@ -19,6 +19,7 @@ const BlogEditPage = () => {
         handleSubmit,
         setValue,
         getValues,
+        reset,
         formState: {
             isSubmitSuccessful,
             isSubmitting,
@@ -51,10 +52,12 @@ const BlogEditPage = () => {
             if (blogId !== 'new') {
                 const response = await BlogService.getFormById(blogId)
                 updateForm(response.data)
+            } else {
+                reset()
             }
         }
         iniForm()
-    }, [])
+    }, [blogId])
 
     return (
         <AdminPanelPage>
@@ -80,7 +83,7 @@ const BlogEditPage = () => {
                         isLoading={isSubmitting}
                     />
                 </form>
-                {(blogId && blogId !== 'new')&&
+                {(blogId && blogId !== 'new') &&
                     <BlogImageForm blogId={blogId}/>
                 }
             </div>

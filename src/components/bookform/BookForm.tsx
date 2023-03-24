@@ -34,6 +34,7 @@ const BookForm = ({bookId}: BookFormProps) => {
         handleSubmit,
         setValue,
         getValues,
+        reset,
         formState: {
             isSubmitSuccessful,
             isSubmitting,
@@ -71,6 +72,7 @@ const BookForm = ({bookId}: BookFormProps) => {
         const iniForm = async () => {
             if (!bookId) return;
             if (bookId === 'new') {
+                reset()
                 categoryIds.append(null)
                 authorIds.append(null)
             } else {
@@ -82,7 +84,7 @@ const BookForm = ({bookId}: BookFormProps) => {
         bookStore.initCategories()
         authorStore.initAutors()
         iniForm()
-    }, [])
+    }, [bookId])
 
 
     useEffect(() => console.log('Errors: ', errors), [errors])

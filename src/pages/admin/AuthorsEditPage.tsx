@@ -17,7 +17,7 @@ const AuthorsEditPage = () => {
         register,
         handleSubmit,
         setValue,
-
+        reset,
         formState: {
             isSubmitSuccessful,
             isSubmitting,
@@ -48,10 +48,12 @@ const AuthorsEditPage = () => {
             if (authorId !== 'new') {
                 const {data} = await AuthorService.getById(authorId)
                 updateForm(data)
+            } else {
+                reset()
             }
         }
         iniForm()
-    }, [])
+    }, [authorId])
 
     return (
         <AdminPanelPage>
@@ -68,14 +70,14 @@ const AuthorsEditPage = () => {
                         errors={errors}
                     />
                     <TextFiled
-                        label={'Fast Name'}
+                        label={'Last Name'}
                         register={
                             register('lastName', {required: true})
                         }
                         errors={errors}
                     />
                     <TextFiled
-                        label={'Meddle Name'}
+                        label={'Middle Name'}
                         register={
                             register('middleName')
                         }

@@ -1,21 +1,27 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {useAppStore} from "../../context/useAppStore";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {Badge, Tooltip} from "@mui/material";
+import {observer} from "mobx-react-lite";
 
 const ShoppingCartButton = () => {
     const navigate = useNavigate();
     const cart = useAppStore().shoppingCartStore;
 
-    if (!cart) {
-        return null;
-    }
-
     return (
-        <div className={'navBarUserMenuButtonIcon navBarUserMenuButtonIconShoppingCard'}
-             onClick={() => navigate('shopping-cart')}>
-            <div className={'navBarUserMenuShoppingCardMarker navBarUserMenuShoppingCardMarkerShow'} children={0}/>
+        <div className={'navBarUserMenuButtonIcon'}>
+            <Tooltip title={'Корзина'}>
+                <Badge badgeContent={cart && cart.totalOrders} color="primary">
+                    <ShoppingCartIcon
+                        fontSize={'large'}
+                        style={{color: '#fff'}}
+                        onClick={() => navigate('/shopping-cart')}
+                    />
+                </Badge>
+            </Tooltip>
         </div>
     );
 };
 
-export default ShoppingCartButton;
+export default observer(ShoppingCartButton);

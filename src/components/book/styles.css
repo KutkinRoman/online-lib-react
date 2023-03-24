@@ -90,6 +90,22 @@
     border-radius: 15px;
 }
 
+.bookCardOnPressContainer{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 60px;
+    bottom: 0;
+}
+
+.bookCardOnPressContainerRight{
+    position: absolute;
+    right: 0;
+    top: 250px;
+    bottom: 0;
+    width: 60px;
+}
+
 .bookCardContainer:hover{
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 10px 10px 28px 10px rgba(0,0,0,0.48);

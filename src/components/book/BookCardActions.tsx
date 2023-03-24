@@ -1,11 +1,9 @@
 import {InterfaceBook} from "../../data/entities/Book";
 import React, {useEffect, useState} from "react";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {observer} from "mobx-react-lite";
-import DownloadIcon from '@mui/icons-material/Download';
 import {useAppStore} from "../../context/useAppStore";
 import EditIcon from '@mui/icons-material/Edit';
 import {useNavigate} from "react-router-dom";
@@ -13,12 +11,15 @@ import {BookService} from "../../data/services/BookService";
 import {BookStatusEnum} from "../../data/entities/BookStatusEnum";
 import {ShoppingCartService} from "../../data/services/ShoppingCartService";
 import {Tooltip} from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
 interface BookCardActions {
     book: InterfaceBook;
 }
 
 const BookCardActions = ({book}: BookCardActions) => {
+    const appStore = useAppStore();
     const authStore = useAppStore().authStore;
     const navigate = useNavigate()
     const [isFavourite, setIsFavourite] = useState<boolean | null>(null)
@@ -49,14 +50,19 @@ const BookCardActions = ({book}: BookCardActions) => {
 
     const addBook = async () => {
         setBookStatus(BookStatusEnum.IN_CART)
-        await ShoppingCartService.addBook(book.id);
+        const response = await ShoppingCartService.addBook(book.id);
+        appStore.setShoppingCartStore(response.data)
     }
 
     const removeBook = async () => {
         setBookStatus(BookStatusEnum.NOT_IN_CART)
-        await ShoppingCartService.removeBook(book.id);
+        const response = await ShoppingCartService.removeBook(book.id);
+        appStore.setShoppingCartStore(response.data)
     }
 
+    const readBook = async () => {
+        navigate(`/books/read/${book.id}`)
+    }
 
     useEffect(() => {
         if (authStore.isUser()) {
@@ -70,18 +76,29 @@ const BookCardActions = ({book}: BookCardActions) => {
             {authStore.isUser() &&
                 <React.Fragment>
                     {(bookStatus !== null) &&
-                        <div className={'bookCardActionsItem'}>
+                        <React.Fragment>
                             {bookStatus === BookStatusEnum.NOT_IN_CART &&
-                                <Tooltip title={'Добавить в корзину'}>
-                                    <AddShoppingCartIcon onClick={addBook}/>
-                                </Tooltip>
+                                <div className={'bookCardActionsItem'}>
+                                    <Tooltip title={'Добавить в корзину'}>
+                                        <AddShoppingCartIcon onClick={addBook}/>
+                                    </Tooltip>
+                                </div>
                             }
                             {bookStatus === BookStatusEnum.IN_CART &&
-                                <Tooltip title={'Удалить из корзины'}>
-                                    <ShoppingCartIcon onClick={removeBook}/>
-                                </Tooltip>
+                                <div className={'bookCardActionsItem'}>
+                                    <Tooltip title={'Удалить из корзины'}>
+                                        <ShoppingCartIcon onClick={removeBook}/>
+                                    </Tooltip>
+                                </div>
                             }
-                        </div>
+                            {bookStatus === BookStatusEnum.PURCHASED &&
+                                <div className={'bookCardActionsItem'}>
+                                    <Tooltip title={'Читать'}>
+                                        <AutoStoriesIcon onClick={readBook}/>
+                                    </Tooltip>
+                                </div>
+                            }
+                        </React.Fragment>
                     }
                     {(isFavourite !== null) &&
                         <div className={'bookCardActionsItem'}>
@@ -100,18 +117,11 @@ const BookCardActions = ({book}: BookCardActions) => {
                 </React.Fragment>
             }
             {authStore.isAdmin() &&
-               <React.Fragment>
-                   <div className={'bookCardActionsItem'}>
-                       <Tooltip title={'Скачать EBook'}>
-                           <DownloadIcon onClick={handleDownloadEBook}/>
-                       </Tooltip>
-                   </div>
-                   <div className={'bookCardActionsItem'}>
-                       <Tooltip title={'Редактировать'}>
-                           <EditIcon onClick={handleEditBook}/>
-                       </Tooltip>
-                   </div>
-               </React.Fragment>
+                <div className={'bookCardActionsItem'}>
+                    <Tooltip title={'Редактировать'}>
+                        <EditIcon onClick={handleEditBook}/>
+                    </Tooltip>
+                </div>
             }
         </div>
     );

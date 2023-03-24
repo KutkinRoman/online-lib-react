@@ -28,7 +28,7 @@ export class AppStore {
         makeAutoObservable(this)
     }
 
-    setShoppingCartStore(shoppingCartStore: ShoppingCartStore) {
+    setShoppingCartStore(shoppingCartStore: ShoppingCartStore | null) {
         this.shoppingCartStore = shoppingCartStore;
     }
 

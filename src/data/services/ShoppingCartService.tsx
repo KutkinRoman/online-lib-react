@@ -24,4 +24,7 @@ export class ShoppingCartService {
         return AUTH_API.get<BookStatusEnum>(`/shopping-cart/book-status/${bookId}`)
     }
 
+    static async payment(id: any) {
+        return AUTH_API.post<ShoppingCart>(`/shopping-cart/payment/${id}`)
+    }
 }
