@@ -18,3 +18,6 @@
 7. Blogs
 8. Create Blog
 
+---
+### Search
+1. Book search by title

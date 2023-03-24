@@ -1,6 +1,7 @@
 import {API, AUTH_API} from "../APICofig";
 import {InterfaceBookForm} from "../entities/BookForm";
 import {InterfaceFile} from "../entities/File";
+import {InterfaceBook} from "../entities/Book";
 
 export class BookService {
 
@@ -46,6 +47,14 @@ export class BookService {
 
     static async removeFavourite(bookId: string) {
         return await AUTH_API.delete<boolean>(`/books/favourite/${bookId}`)
+    }
+
+    static async search(name: any) {
+        return await API.get<InterfaceBook[]>(`/books/search`, {
+            params: {
+                name
+            }
+        })
     }
 
 }
