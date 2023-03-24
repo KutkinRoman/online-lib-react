@@ -68,14 +68,14 @@ const AuthorsEditPage = () => {
                         errors={errors}
                     />
                     <TextFiled
-                        label={'Fast Name'}
+                        label={'Last Name'}
                         register={
                             register('lastName', {required: true})
                         }
                         errors={errors}
                     />
                     <TextFiled
-                        label={'Meddle Name'}
+                        label={'Middle Name'}
                         register={
                             register('middleName')
                         }
