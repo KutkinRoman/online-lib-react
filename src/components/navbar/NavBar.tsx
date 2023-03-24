@@ -46,6 +46,7 @@ const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
     const navigate = useNavigate();
     const location = useLocation();
     const navStore = useAppStore().navigationStore
+    const authStore = useAppStore().authStore
 
     const onClickItemHandler = (item: NavItem) => {
         navStore.setCurrentItemId(item.id)
@@ -84,6 +85,17 @@ const NavBar = ({className, scrollProps, ...props}: NavBarProps) => {
             </div>
             <div className={'navBarItemsContainer'}>
                 {items.map(renderItem)}
+                {authStore.isAdmin() &&
+                    <NavItemComponent
+                        item={{
+                            id: 'admin_panel',
+                            name: 'Admin',
+                            scrollToElement: 'admin'
+                        }}
+                        currentItemId={navStore.currentItemId}
+                        onClick={() => navigate('/admin-panel')}
+                    />
+                }
             </div>
             <NavUserMenu/>
         </div>

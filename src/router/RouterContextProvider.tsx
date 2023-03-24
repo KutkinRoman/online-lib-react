@@ -5,13 +5,19 @@ import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
 import UserVerificationPage from "../pages/UserVerificationPage";
 import BooksPage from "../pages/BooksPage";
-import BookEditPage from "../pages/BookEditPage";
 import {useAppStore} from "../context/useAppStore";
 import ShoppingCartPage from "../pages/ShoppingCartPage";
 import {observer} from "mobx-react-lite";
 import AdminPanelPage from "../pages/admin";
 import NotFoundPage from "../pages/NotFoundPage";
-import {Alert, Stack} from "@mui/material";
+import {Alert} from "@mui/material";
+import BookEditPage from "../pages/admin/BookEditPage";
+import AuthorsEditPage from "../pages/admin/AuthorsEditPage";
+import AuthorsPage from "../pages/admin/AuthorsPage";
+import BookCategoriesPage from "../pages/admin/BookCategoriesPage";
+import BookCategoryEditPage from "../pages/admin/BookCategoryEditPage";
+import BlogEditPage from "../pages/admin/BlogEditPage";
+import BlogsPage from "../pages/admin/BlogsPage";
 
 const RouterContextProvider = () => {
     const authStore = useAppStore().authStore
@@ -28,17 +34,47 @@ const RouterContextProvider = () => {
                 <Route path={'/login'} element={<LoginPage/>}/>
                 <Route path={'/sign-up'} element={<SignUpPage/>}/>
                 <Route path={'/landing-page'} element={<LandingPage/>}/>
-                <Route path={'/user-verification'}
-                       element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}/>
+                <Route
+                    path={'/user-verification'}
+                    element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}
+                />
                 <Route path={'/books'} element={<BooksPage/>}/>
-                <Route path={'/shopping-cart'}
-                       element={authStore.isAuth() ? <ShoppingCartPage/> : <LoginPage/>}/>
-                <Route path={'/admin-panel'}
-                       element={authStore.isAuth() ? <AdminPanelPage/> : <LoginPage/>}/>
-                <Route path={'/book-edit'}>
-                    <Route path={':bookId'}
-                           element={authStore.isAuth() ? <BookEditPage/> : <LoginPage/>}/>
-                </Route>
+                <Route
+                    path={'/shopping-cart'}
+                    element={authStore.isUser() ? <ShoppingCartPage/> : <LoginPage/>}
+                />
+                {authStore.isAuth() &&
+                    <React.Fragment>
+                        <Route
+                            path={'/admin-panel'}
+                            element={<AdminPanelPage/>}
+                        />
+                        <Route path={'/admin-panel/book-edit'}>
+                            <Route path={':bookId'} element={<BookEditPage/>}/>
+                        </Route>
+                        <Route
+                            path={'/admin-panel/authors'}
+                            element={<AuthorsPage/>}
+                        />
+                        <Route path={'/admin-panel/author-edit'}>
+                            <Route path={':authorId'} element={<AuthorsEditPage/>}/>
+                        </Route>
+                        <Route
+                            path={'/admin-panel/categories'}
+                            element={<BookCategoriesPage/>}
+                        />
+                        <Route path={'/admin-panel/book-category-edit'}>
+                            <Route path={':categoryId'} element={<BookCategoryEditPage/>}/>
+                        </Route>
+                        <Route
+                            path={'/admin-panel/blogs'}
+                            element={<BlogsPage/>}
+                        />
+                        <Route path={'/admin-panel/blog-edit'}>
+                            <Route path={':blogId'} element={<BlogEditPage/>}/>
+                        </Route>
+                    </React.Fragment>
+                }
                 <Route path={'/*'} element={<NotFoundPage/>}/>
             </Routes>
         </React.Fragment>

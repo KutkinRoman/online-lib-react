@@ -25,7 +25,7 @@ const BookCardActions = ({book}: BookCardActions) => {
     const [bookStatus, setBookStatus] = useState<BookStatusEnum | null>(null)
 
     const handleDownloadEBook = () => window.open(book.ebookLink)
-    const handleEditBook = () => navigate(`book-edit/${book.id}`)
+    const handleEditBook = () => navigate(`/admin-panel/book-edit/${book.id}`)
 
     const fetchIsFavourite = async () => {
         const response = await BookService.isFavourite(book.id);
