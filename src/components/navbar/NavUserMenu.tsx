@@ -4,6 +4,7 @@ import './styles.css';
 import ShoppingCartButton from "./ShoppingCartButton";
 import {observer} from "mobx-react-lite";
 import {useAppStore} from "../../context/useAppStore";
+import MultiSearch from "../search";
 
 const NavUserMenu = () => {
     const authStore = useAppStore().authStore
@@ -16,7 +17,9 @@ const NavUserMenu = () => {
 
     return (
         <div className={'navBarUserMenuContainer'}>
-            <div className={'navBarUserMenuButtonIcon navBarUserMenuButtonIconSearch'}/>
+            <div className={'navBarUserMenuButtonIcon'}>
+                <MultiSearch/>
+            </div>
             {authStore.isAuth()
                 ? <React.Fragment>
                     {/*<NotificationButton/>*/}
