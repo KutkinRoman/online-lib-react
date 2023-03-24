@@ -71,6 +71,7 @@ const MultiSearch = () => {
                             fullWidth
                             value={search}
                             onChange={onChangeSearchHandler}
+                            focused
                         />
                         {isLoading
                             ?
