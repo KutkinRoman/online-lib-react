@@ -1,0 +1,83 @@
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {InterfaceFile} from "../../data/entities/File";
+import {useAlert} from "../../hooks/useAlert";
+import {useDropzone} from "react-dropzone";
+import {CircularProgress} from "@mui/material";
+import {BlogService} from "../../data/services/BlogService";
+
+interface BlogImageFormProps {
+    blogId: string
+}
+
+const BlogImageForm = ({blogId}: BlogImageFormProps) => {
+    const [isLoadin, setIsLoading] = useState(false)
+    const [cover, setCover] = useState<InterfaceFile | null>(null)
+    const {successSaved, errorSaved, enqueueSnackbar} = useAlert();
+
+    const onDrop = useCallback(async (acceptedFiles: any) => {
+        if (acceptedFiles[0]) {
+            try {
+                setIsLoading(true)
+                const formData = new FormData()
+                formData.set('file', acceptedFiles[0])
+                const response = await BlogService.uploadImage(blogId, formData)
+                setCover(response.data)
+                successSaved()
+            } catch (e) {
+                console.log(e)
+                errorSaved()
+            } finally {
+                setIsLoading(false)
+            }
+        }
+    }, [])
+
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+    useEffect(() => {
+        const fetchCover = async () => {
+            try {
+                setIsLoading(true)
+                const response = await BlogService.downloadImage(blogId)
+                setCover(response.data)
+            } catch (e) {
+                console.log(e)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+        fetchCover()
+    }, [blogId])
+
+
+    const containerStyle = useMemo(() => {
+        return isDragActive
+            ? 'formInputContainer bookCoverInputContainer bookCoverInputContainerDrag'
+            : 'formInputContainer bookCoverInputContainer'
+    }, [isDragActive])
+
+    return (
+        <div className={'formInputWrapper bookCoverFormWrapper'}>
+            <div className={'formLabel'}>Image</div>
+            <div className={containerStyle} {...getRootProps()}>
+                {isLoadin
+                    ?
+                    <CircularProgress color={'primary'} size={25}/>
+                    :
+                    <React.Fragment>
+                        <input {...getInputProps()} />
+                        {cover &&
+                            <img className={'bookCoverImage'} src={cover.link} alt={cover.fileName}/>
+                        }
+                        {isDragActive ?
+                            <p className={'formLabel'}>File Uploading...</p> :
+                            <p className={'formLabel'}>Drag file or click</p>
+                        }
+                    </React.Fragment>
+                }
+            </div>
+        </div>
+    );
+};
+
+export default BlogImageForm;

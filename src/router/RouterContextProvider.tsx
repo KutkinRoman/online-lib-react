@@ -11,6 +11,7 @@ import {observer} from "mobx-react-lite";
 import AdminPanelPage from "../pages/admin";
 import NotFoundPage from "../pages/NotFoundPage";
 import {Alert} from "@mui/material";
+import BooksPageAdmin from "../pages/admin/BooksPageAdmin";
 import BookEditPage from "../pages/admin/BookEditPage";
 import AuthorsEditPage from "../pages/admin/AuthorsEditPage";
 import AuthorsPage from "../pages/admin/AuthorsPage";
@@ -48,6 +49,10 @@ const RouterContextProvider = () => {
                         <Route
                             path={'/admin-panel'}
                             element={<AdminPanelPage/>}
+                        />
+                        <Route
+                            path={'/admin-panel/books'}
+                            element={<BooksPageAdmin/>}
                         />
                         <Route path={'/admin-panel/book-edit'}>
                             <Route path={':bookId'} element={<BookEditPage/>}/>

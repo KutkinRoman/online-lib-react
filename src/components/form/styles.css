@@ -23,6 +23,10 @@
     text-align: center;
 }
 
+.formHeaderTitleLeft{
+    text-align: left;
+}
+
 .formHeaderDescription {
     font-family: 'Open Sans', serif;
     font-style: normal;

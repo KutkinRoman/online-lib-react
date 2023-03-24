@@ -1,17 +1,16 @@
 import React, {useEffect, useState} from 'react';
+import {InterfaceAuthor} from "../../data/entities/Author";
 import AdminPanelPage from "./index";
-import {InterfaceBlog} from "../../data/entities/Blog";
-import {BlogService} from "../../data/services/BlogService";
 import {Divider} from "@mui/material";
 import EntityTable from "../../components/table/entity";
+import {BookService} from "../../data/services/BookService";
 
-const BlogsPage = () => {
-
-    const [data, setData] = useState<InterfaceBlog[]>([])
+const BooksPageAdmin = () => {
+    const [data, setData] = useState<InterfaceAuthor[]>([])
 
     useEffect(() => {
         const initData = async () => {
-            const response = await BlogService.getAll();
+            const response = await BookService.getAll();
             setData(response.data)
         }
         initData()
@@ -19,11 +18,11 @@ const BlogsPage = () => {
 
     return (
         <AdminPanelPage>
-            <h3>BlogsPage</h3>
+            <h3>Books</h3>
             <Divider/>
-            <EntityTable data={data} editLink={'/admin-panel/blog-edit'}/>
+            <EntityTable data={data} editLink={'/admin-panel/book-edit'}/>
         </AdminPanelPage>
     );
 };
 
-export default BlogsPage;
+export default BooksPageAdmin;

@@ -4,6 +4,10 @@ import {InterfaceFile} from "../entities/File";
 
 export class BookService {
 
+    static async getAll() {
+        return await API.get<any>('/books/getAll')
+    }
+
     static async getPageByParams(params?: any) {
         return await API.get<any>('/books/pages', {params})
     }

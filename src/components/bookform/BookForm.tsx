@@ -54,7 +54,7 @@ const BookForm = ({bookId}: BookFormProps) => {
     const onSubmit = async (data: any) => {
         const response = await BookService.saveForm(data)
         updateForm(response.data)
-        navigate(`/book-edit/${response.data.id}`)
+        navigate(`/admin-panel/book-edit/${response.data.id}`)
     }
 
     const updateForm = (data: InterfaceBookForm) => {
@@ -90,7 +90,7 @@ const BookForm = ({bookId}: BookFormProps) => {
     return (
         <div className={'formContainer bookEditForm'}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className={'formHeaderTitle'}>
+                <div className={'formHeaderTitle formHeaderTitleLeft'}>
                     Редактор книги
                 </div>
                 <TextFiled

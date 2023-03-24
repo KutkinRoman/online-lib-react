@@ -29,6 +29,10 @@ const navItems = [
         path: '/'
     },
     {
+        name: 'Books',
+        path: '/admin-panel/books'
+    },
+    {
         name: 'Create Book',
         path: '/admin-panel/book-edit/new'
     },

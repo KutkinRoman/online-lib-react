@@ -7,6 +7,10 @@ export class AuthorService {
         return await API.get<InterfaceAuthor[]>('/authors/getAll')
     }
 
+    static async getById(id: any) {
+        return await API.get<InterfaceAuthor>(`/authors/${id}`)
+    }
+
     static async save(data: any) {
         return await API.post<InterfaceAuthor>('/authors/save', data)
     }
