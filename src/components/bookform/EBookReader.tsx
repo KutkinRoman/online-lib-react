@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./styles.css";
 import {EpubViewStyle, IEpubViewStyle, IReactReaderStyle, ReactReader, ReactReaderStyle} from "react-reader";
 import {OrderService} from "../../data/services/OrderService";
+import {Alert, LinearProgress} from "@mui/material";
 
 const customReactReaderStyle: IReactReaderStyle = {
     ...ReactReaderStyle,
@@ -30,6 +31,7 @@ interface EBookReaderProps {
 
 const EBookReader = ({url, bookId}: EBookReaderProps) => {
 
+    const [isLoading, setIsLoading] = useState(true)
     const [isInit, setIsInit] = useState(false)
     const [location, setLocation] = useState<any>()
 
@@ -47,6 +49,7 @@ const EBookReader = ({url, bookId}: EBookReaderProps) => {
                 console.log(e)
             } finally {
                 setIsInit(true)
+                setIsLoading(false)
             }
         }
         initLocation()
@@ -54,6 +57,9 @@ const EBookReader = ({url, bookId}: EBookReaderProps) => {
 
     return (
         <div style={{position: "relative", height: "100vh"}}>
+            {isLoading &&
+                <LinearProgress />
+            }
             {isInit &&
                 <ReactReader
                     location={location}

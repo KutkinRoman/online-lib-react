@@ -20,6 +20,7 @@ import BookCategoryEditPage from "../pages/admin/BookCategoryEditPage";
 import BlogEditPage from "../pages/admin/BlogEditPage";
 import BlogsPage from "../pages/admin/BlogsPage";
 import EBookReaderPage from "../pages/EBookReaderPage";
+import BookPage from "../pages/BookPage";
 
 const RouterContextProvider = () => {
     const authStore = useAppStore().authStore
@@ -43,8 +44,16 @@ const RouterContextProvider = () => {
                 <Route
                     path={'/books'}
                     element={<BooksPage/>}
-                >
-                </Route>
+                />
+                    <Route
+                        path={'/book'}
+                        element={<BookPage/>}
+                    >
+                        <Route
+                            path={':bookId'}
+                            element={<BookPage/>}
+                        />
+                    </Route>
                 <Route
                     path={'/shopping-cart'}
                     element={authStore.isUser() ? <ShoppingCartPage/> : <LoginPage/>}

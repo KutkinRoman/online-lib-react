@@ -5,6 +5,10 @@ import {InterfaceBook} from "../entities/Book";
 
 export class BookService {
 
+    static async getBookById(bookId: any) {
+        return await API.get<InterfaceBook>(`/books/${bookId}`)
+    }
+
     static async getAll() {
         return await API.get<any>('/books/getAll')
     }
@@ -56,5 +60,6 @@ export class BookService {
             }
         })
     }
+
 
 }

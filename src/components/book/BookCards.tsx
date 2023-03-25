@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'
 import BookCard from "./BookCard";
-import {Grid} from "@mui/material";
+import {Grid, LinearProgress} from "@mui/material";
 import BookCardsPagination from "./BookCardsPagination";
 import {useAppStore} from "../../context/useAppStore";
 import {observer} from "mobx-react-lite";
@@ -37,6 +37,9 @@ const BookCards = ({isPagination, isShowAll}: BookCardsProps) => {
 
     return (
         <div className={'bookCardsContainer'}>
+            {(bookStore.isLoading && isShowAll) &&
+                <LinearProgress />
+            }
             <Grid container spacing={2} flex={1}>
                 {bookStore.content.map(book => {
                     return (

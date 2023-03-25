@@ -24,8 +24,8 @@ const BookCard = ({book}: BookCardProps) => {
     return (
         <Grid item xs={12} sm={6} md={4} lg={4}>
             <div className={'bookCardContainer'}>
-                <div className={'bookCardOnPressContainer'} onClick={() => navigate(`/books/${book.id}`)}/>
-                <div className={'bookCardOnPressContainerRight'} onClick={() => navigate(`/books/${book.id}`)}/>
+                <div className={'bookCardOnPressContainer'} onClick={() => navigate(`/book/${book.id}`)}/>
+                <div className={'bookCardOnPressContainerRight'} onClick={() => navigate(`/book/${book.id}`)}/>
                 <div className={'bookCardPriceContainer'}>
                     <div className={'bookCardPrice'}>
                         {generationPriceString(book.price)}

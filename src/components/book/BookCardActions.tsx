@@ -13,6 +13,7 @@ import {ShoppingCartService} from "../../data/services/ShoppingCartService";
 import {Tooltip} from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import OrderFeedbackModal from "../orderfeedback/OrderFeedbackModal";
 
 interface BookCardActions {
     book: InterfaceBook;
@@ -25,7 +26,6 @@ const BookCardActions = ({book}: BookCardActions) => {
     const [isFavourite, setIsFavourite] = useState<boolean | null>(null)
     const [bookStatus, setBookStatus] = useState<BookStatusEnum | null>(null)
 
-    const handleDownloadEBook = () => window.open(book.ebookLink)
     const handleEditBook = () => navigate(`/admin-panel/book-edit/${book.id}`)
 
     const fetchIsFavourite = async () => {
@@ -64,6 +64,10 @@ const BookCardActions = ({book}: BookCardActions) => {
         navigate(`/ebook-read/${book.id}`)
     }
 
+    const onFeedback = () => {
+
+    }
+
     useEffect(() => {
         if (authStore.isUser()) {
             fetchBookStatus()
@@ -92,11 +96,16 @@ const BookCardActions = ({book}: BookCardActions) => {
                                 </div>
                             }
                             {bookStatus === BookStatusEnum.PURCHASED &&
-                                <div className={'bookCardActionsItem'}>
-                                    <Tooltip title={'Читать'}>
-                                        <AutoStoriesIcon onClick={readBook}/>
-                                    </Tooltip>
-                                </div>
+                                <React.Fragment>
+                                    <div className={'bookCardActionsItem'}>
+                                        <Tooltip title={'Читать'}>
+                                            <AutoStoriesIcon onClick={readBook}/>
+                                        </Tooltip>
+                                    </div>
+                                    <div className={'bookCardActionsItem'}>
+                                       <OrderFeedbackModal book={book}/>
+                                    </div>
+                                </React.Fragment>
                             }
                         </React.Fragment>
                     }
