@@ -61,7 +61,7 @@ const BookCardActions = ({book}: BookCardActions) => {
     }
 
     const readBook = async () => {
-        navigate(`/books/read/${book.id}`)
+        navigate(`/ebook-read/${book.id}`)
     }
 
     useEffect(() => {

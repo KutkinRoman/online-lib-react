@@ -19,6 +19,7 @@ import BookCategoriesPage from "../pages/admin/BookCategoriesPage";
 import BookCategoryEditPage from "../pages/admin/BookCategoryEditPage";
 import BlogEditPage from "../pages/admin/BlogEditPage";
 import BlogsPage from "../pages/admin/BlogsPage";
+import EBookReaderPage from "../pages/EBookReaderPage";
 
 const RouterContextProvider = () => {
     const authStore = useAppStore().authStore
@@ -39,12 +40,24 @@ const RouterContextProvider = () => {
                     path={'/user-verification'}
                     element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}
                 />
-                <Route path={'/books'} element={<BooksPage/>}/>
+                <Route
+                    path={'/books'}
+                    element={<BooksPage/>}
+                >
+                </Route>
                 <Route
                     path={'/shopping-cart'}
                     element={authStore.isUser() ? <ShoppingCartPage/> : <LoginPage/>}
                 />
                 {authStore.isAuth() &&
+                    <Route path={'/ebook-read'}>
+                        <Route
+                            path={':bookId'}
+                            element={<EBookReaderPage/>}
+                        />
+                    </Route>
+                }
+                {authStore.isAdmin() &&
                     <React.Fragment>
                         <Route
                             path={'/admin-panel'}
