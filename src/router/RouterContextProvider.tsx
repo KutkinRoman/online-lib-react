@@ -39,7 +39,7 @@ const RouterContextProvider = () => {
                 <Route path={'/landing-page'} element={<LandingPage/>}/>
                 <Route
                     path={'/user-verification'}
-                    element={authStore.isNotVerification() ? <UserVerificationPage/> : <NotFoundPage/>}
+                    element={<UserVerificationPage/>}
                 />
                 <Route
                     path={'/books'}
