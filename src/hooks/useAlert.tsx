@@ -6,7 +6,7 @@ export const useAlert = () => {
 
     const successSaved = () => enqueueSnackbar('Сохранено', {variant: "success"})
 
-    const errorSaved = () => enqueueSnackbar('Ошибка при сохранении', {variant: "success"})
+    const errorSaved = () => enqueueSnackbar('Ошибка при сохранении', {variant: "error"})
 
     return {
         enqueueSnackbar,
